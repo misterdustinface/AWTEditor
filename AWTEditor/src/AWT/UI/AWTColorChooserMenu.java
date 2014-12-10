@@ -91,9 +91,9 @@ public class AWTColorChooserMenu extends DataModificationNotifier implements AWT
 			menuDrawer.drawSlider(slider);
 
 		g.setColor(Color.WHITE);
-		g.fillOval(displayBox.x + displayBox.width - elementSize - elementOffset, displayBox.y + elementSize/4 + elementOffset, elementSize, elementSize);
+		g.fillOval((int)(displayBox.x + displayBox.width - elementSize - elementOffset), (int)(displayBox.y + elementSize/4 + elementOffset), elementSize, elementSize);
 		g.setColor(awtColor);
-		g.fillRect(displayBox.x + displayBox.width - elementSize - elementOffset, displayBox.y + elementOffset, elementSize, displayBox.height);
+		g.fillRect((int)(displayBox.x + displayBox.width - elementSize - elementOffset), (int)(displayBox.y + elementOffset), elementSize, (int)displayBox.height);
 	}
 
 	@Override

@@ -40,7 +40,7 @@ public class AWTViewportOptionsMenu extends AWTDropdownMenu {
 		list.setButtons(menuButtons);
 		list.setPostition(new Point(282,2 + optionsButton.getHeight()));
 		list.setButtonOffset(2);
-		list.setButtonDimensions(optionsButton.getWidth() - 4, optionsButton.getHeight() - 4);
+		list.setButtonDimensions((int)optionsButton.getWidth() - 4, (int)optionsButton.getHeight() - 4);
 		
 		setRoot(optionsButton);
 		setMenu(list);

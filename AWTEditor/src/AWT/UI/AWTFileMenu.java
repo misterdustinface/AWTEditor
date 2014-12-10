@@ -99,7 +99,7 @@ public class AWTFileMenu extends AWTDropdownMenu {
 		list.setButtons(fileMenuOptions);
 		list.setPostition(new Point(2,2 + fileButton.getHeight()));
 		list.setButtonOffset(2);
-		list.setButtonDimensions(fileButton.getWidth() - 4, fileButton.getHeight() - 4);
+		list.setButtonDimensions((int)fileButton.getWidth() - 4, (int)fileButton.getHeight() - 4);
 		
 		setRoot(fileButton);
 		setMenu(list);

@@ -36,25 +36,25 @@ public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer {
 	private void drawButton( AWTMenuButton b ) {
 		shapeDrawer.setGraphics(graphics);
 		shapeDrawer.setColor(((AWTMenuButton)b).getColor());
-		shapeDrawer.drawPolygonBorder(b.polygon);
+		shapeDrawer.drawPolygon(b.polygon);
 		drawTextLabel(b.textLabel);
 	}
 	
 	private void drawFilledButton( AWTMenuButton b ) {
 		shapeDrawer.setGraphics(graphics);
 		shapeDrawer.setColor(((AWTMenuButton)b).getNormalColor());
-		shapeDrawer.drawPolygon(b.polygon);
+		shapeDrawer.drawFilledPolygon(b.polygon);
 		shapeDrawer.setColor(((AWTMenuButton)b).getColor());
-		shapeDrawer.drawPolygon(b.polygon);
+		shapeDrawer.drawFilledPolygon(b.polygon);
 		drawTextLabel(b.textLabel);
 	}
 	
 	public void drawPlusOnButton( MenuButton b ) {
 		
-		int centerX    = b.getCenterX();
-		int centerY    = b.getCenterY();
-		int plusWidth  = b.getWidth() >>1;
-		int plusHeight = b.getHeight()>>1;
+		int centerX    = (int) b.getCenterX();
+		int centerY    = (int) b.getCenterY();
+		int plusWidth  = (int) b.getWidth() >>1;
+		int plusHeight = (int) b.getHeight()>>1;
 		plusWidth  = plusWidth < plusHeight ? plusWidth : plusHeight;
 		plusHeight = AWTGraphicData.plusSignThickness;
 		
@@ -67,9 +67,9 @@ public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer {
 	public void drawSlider( BarSlider s ) {
 		shapeDrawer.setGraphics(graphics);
 		shapeDrawer.setColor(((AWTBarSlider)s).getBaseColor());
-		shapeDrawer.drawRectangle(s.getBase());
+		shapeDrawer.drawFilledRectangle(s.getBase());
 		shapeDrawer.setColor(((AWTBarSlider)s).getFillColor());
-		shapeDrawer.drawRectangle(s.getFill());
+		shapeDrawer.drawFilledRectangle(s.getFill());
 	}
 	
 	public void drawSelectorArrow( MenuButton b, int x, int size ) {

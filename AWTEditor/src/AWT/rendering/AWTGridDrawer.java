@@ -59,7 +59,7 @@ public class AWTGridDrawer implements AWTUILayer {
 	}
 	private void drawBackground(Graphics g){
 		g.setColor(BACKGROUND_COLOR);
-		g.fillRect(drawingBounds.x, drawingBounds.y, drawingBounds.width, drawingBounds.height);
+		g.fillRect((int)drawingBounds.x, (int)drawingBounds.y, (int)drawingBounds.width, (int)drawingBounds.height);
 	}
 	private void drawMinorLines(Graphics g){
 		g.setColor(MINOR_LINES_COLOR);
@@ -72,19 +72,19 @@ public class AWTGridDrawer implements AWTUILayer {
 	
 	private void makeCrissCrossLines(Graphics g, int SPACING) {
 		for(int i = 0; i < width; i+=  SPACING)
-			g.drawLine(i, drawingBounds.y, i , drawingBounds.height);
+			g.drawLine(i, (int)drawingBounds.y, i , (int)drawingBounds.height);
 		for(int j = 0; j < height; j+= SPACING)
-			g.drawLine(drawingBounds.x, j, drawingBounds.width , j);
+			g.drawLine((int)drawingBounds.x, j, (int)drawingBounds.width , j);
 		for(int i = 0; i > -width; i-= SPACING)
-			g.drawLine(i, drawingBounds.y, i , drawingBounds.height);
+			g.drawLine(i, (int)drawingBounds.y, i , (int)drawingBounds.height);
 		for(int j = 0; j > -height;j-= SPACING)
-			g.drawLine(drawingBounds.x, j, drawingBounds.width , j);
+			g.drawLine((int)drawingBounds.x, j, (int)drawingBounds.width , j);
 	}
 	
 	private void drawOriginLines(Graphics g){
 		g.setColor(ORIGIN_COLOR);
-		g.drawLine(0,drawingBounds.y,0,drawingBounds.height);
-		g.drawLine(drawingBounds.x, 0, drawingBounds.width, 0);
+		g.drawLine(0,(int)drawingBounds.y,0,(int)drawingBounds.height);
+		g.drawLine((int)drawingBounds.x, 0, (int)drawingBounds.width, 0);
 	}
 	
 }
