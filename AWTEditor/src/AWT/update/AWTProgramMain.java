@@ -1,4 +1,6 @@
 package AWT.update;
+
+import generic.StopwatchTimer;
 import AWT.UI.AWTLayerManager;
 import AWT.UI.AWTMouseUserDevice;
 import AWT.UI.AWTUIFunction;
@@ -9,10 +11,15 @@ public class AWTProgramMain implements Runnable {
 
 	private AWTMouseUserDevice	mouse;
 	private AWTLayerManager		layerManager;
-	private int UPS = 60;
+	private long millisAllowedPerUpdate = 1000 / 60;
+	private StopwatchTimer iterationStopwatch;
+	
+	public AWTProgramMain() {
+		iterationStopwatch = new StopwatchTimer();
+	}
 	
 	public void setUpdatesPerSecond(int UPS) {
-		this.UPS = UPS;
+		millisAllowedPerUpdate = 1000 / UPS;
 	}
 	
 	public void setMouse(AWTMouseUserDevice mouse) {
@@ -32,13 +39,12 @@ public class AWTProgramMain implements Runnable {
 	@Override
 	public void run() {
 		for(;;) {
-			
+			iterationStopwatch.reset();
 			layerManager.forAllUIPerformFunction(uiUpdate);
 			
 			try {
-				Thread.sleep(5); // Fixes really strange swing thread priority bug.
+				Thread.sleep(millisAllowedPerUpdate - iterationStopwatch.time__ms());
 			} catch (Exception e) {}
-		
 		}
 	}
 }
