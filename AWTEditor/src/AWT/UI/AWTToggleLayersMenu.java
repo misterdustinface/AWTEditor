@@ -7,11 +7,11 @@ import data.shapes.Point;
 
 public class AWTToggleLayersMenu extends AWTDropdownMenu {
 
-	private AWTEditorPanel editorPanel;
+	private AWTLayerManager layerManager;
 	
-	public AWTToggleLayersMenu(AWTEditorPanel EDITOR_PANEL) {
+	public AWTToggleLayersMenu(AWTLayerManager LAYER_MANAGER) {
 		super();
-		editorPanel = EDITOR_PANEL;
+		layerManager = LAYER_MANAGER;
 		setup();
 	}
 	
@@ -23,7 +23,7 @@ public class AWTToggleLayersMenu extends AWTDropdownMenu {
 		toggleButton.setButtonPressedFunction(new VoidFunctionPointer(){
 			@Override
 			public void call() {
-				editorPanel.toggleLayer(ui);
+				layerManager.toggleLayer(ui);
 			}
 		});
 		menu.addButton(toggleButton);
