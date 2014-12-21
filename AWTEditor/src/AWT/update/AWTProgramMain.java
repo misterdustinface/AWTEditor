@@ -1,50 +1,40 @@
 package AWT.update;
 
-import generic.StopwatchTimer;
-import AWT.UI.AWTLayerManager;
+import UI.LayerManager;
+import UI.UIFunction;
+import UI.UILayer;
+import generic.ProgramMain;
+import generic.VoidFunctionPointer;
 import AWT.UI.AWTMouseUserDevice;
-import AWT.UI.AWTUIFunction;
 import AWT.UI.AWTUILayer;
 
 
-public class AWTProgramMain implements Runnable {
-
+public class AWTProgramMain extends ProgramMain {
+	
+	public static ProgramMain create(LayerManager LAYER_MANAGER, AWTMouseUserDevice MOUSE_USER_DEVICE) {
+		return new AWTProgramMain(LAYER_MANAGER, MOUSE_USER_DEVICE);
+	}
+	
 	private AWTMouseUserDevice	mouse;
-	private AWTLayerManager		layerManager;
-	private long millisAllowedPerUpdate = 1000 / 60;
-	private StopwatchTimer iterationStopwatch;
-	
-	public AWTProgramMain() {
-		iterationStopwatch = new StopwatchTimer();
-	}
-	
-	public void setUpdatesPerSecond(int UPS) {
-		millisAllowedPerUpdate = 1000 / UPS;
-	}
-	
-	public void setMouse(AWTMouseUserDevice mouse) {
-		this.mouse = mouse;
-	}
-	
-	public void setLayerManager(AWTLayerManager layerManager) {
-		this.layerManager = layerManager;
-	}
-	
-	private AWTUIFunction uiUpdate = new AWTUIFunction() {
-		public void call(AWTUILayer ui) {
-			ui.update(mouse);
+	private LayerManager		layerManager;
+	private UIFunction uiUpdate = new UIFunction() {
+		public void call(UILayer ui) {
+			((AWTUILayer)ui).update(mouse);
 		}
 	};
 	
-	@Override
-	public void run() {
-		for(;;) {
-			iterationStopwatch.reset();
-			layerManager.forAllUIPerformFunction(uiUpdate);
-			
-			try {
-				Thread.sleep(millisAllowedPerUpdate - iterationStopwatch.time__ms());
-			} catch (Exception e) {}
-		}
+	private AWTProgramMain(LayerManager LAYER_MANAGER, AWTMouseUserDevice MOUSE_USER_DEVICE) {
+		super();
+		
+		layerManager 	= LAYER_MANAGER;
+		mouse 			= MOUSE_USER_DEVICE;
+		
+		super.addFunction(new VoidFunctionPointer() {
+			@Override
+			public void call() {
+				layerManager.forAllUIPerformFunction(uiUpdate);
+			}
+		});
 	}
+		
 }

@@ -1,15 +1,16 @@
 package AWT.UI;
 
 import generic.VoidFunctionPointer;
+import UI.LayerManager;
 import UI.MenuButton;
 import UI.StaticListMenu;
 import data.shapes.Point;
 
 public class AWTToggleLayersMenu extends AWTDropdownMenu {
 
-	private AWTLayerManager layerManager;
+	private LayerManager layerManager;
 	
-	public AWTToggleLayersMenu(AWTLayerManager LAYER_MANAGER) {
+	public AWTToggleLayersMenu(LayerManager LAYER_MANAGER) {
 		super();
 		layerManager = LAYER_MANAGER;
 		setup();
