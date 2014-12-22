@@ -78,7 +78,7 @@ public class AWTGridDrawer implements AWTUILayer {
 	}
 	
 	private void makeCrissCrossLines(Graphics g, int SPACING) {
-		for(int i = 0; i < width; i+=  SPACING)
+		for(int i = 0; i < width;  i+= SPACING)
 			g.drawLine(i, (int)drawingBounds.y, i , (int)drawingBounds.height);
 		for(int j = 0; j < height; j+= SPACING)
 			g.drawLine((int)drawingBounds.x, j, (int)drawingBounds.width , j);
