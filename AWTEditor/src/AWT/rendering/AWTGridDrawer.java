@@ -16,6 +16,7 @@ public class AWTGridDrawer implements AWTUILayer {
 	public Color MINOR_LINES_COLOR 	= new Color(225,225,225);
 	public Color MAJOR_LINES_COLOR 	= new Color(180,180,180);
 	public Color ORIGIN_COLOR 		= Color.RED;
+	public Color MOUSEOVER_HIGHLIGHT_COLOR = new Color(225,225,225);
 	public int 	MINOR_LINE_SPACING 	= 16;
 	public int 	MAJOR_LINE_SPACING 	= MINOR_LINE_SPACING * 8;
 	
@@ -24,6 +25,8 @@ public class AWTGridDrawer implements AWTUILayer {
 	
 	private Rectangle drawingBounds;
 	private AWTViewport  viewport;
+	
+	private int mouseX, mouseY;
 	
 	public AWTGridDrawer(AWTViewport VIEWPORT){
 		xPos = yPos = width = height = 0;
@@ -38,6 +41,8 @@ public class AWTGridDrawer implements AWTUILayer {
 		drawMinorLines(g);
 		drawMajorLines(g);
 		drawOriginLines(g);
+		
+		highlightMouseoverGridSquare(g);
 	}
 	@Override
 	public void update(MouseUserDevice mouse) {
@@ -45,6 +50,8 @@ public class AWTGridDrawer implements AWTUILayer {
 		setDimensions(viewport.getWidth(), viewport.getHeight());
 		setZoom(viewport.getZoom());
 		calculateDrawingBounds();
+		mouseX = (int)mouse.getCursorX();
+		mouseY = (int)mouse.getCursorY();
 	}
 	
 	private void setCenter(int X, int Y) { xPos = X; yPos = Y; }
@@ -85,6 +92,15 @@ public class AWTGridDrawer implements AWTUILayer {
 		g.setColor(ORIGIN_COLOR);
 		g.drawLine(0,(int)drawingBounds.y,0,(int)drawingBounds.height);
 		g.drawLine((int)drawingBounds.x, 0, (int)drawingBounds.width, 0);
+	}
+	
+	private void highlightMouseoverGridSquare(Graphics g) {
+		g.setColor(MOUSEOVER_HIGHLIGHT_COLOR);
+		int x = mouseX - (mouseX % MINOR_LINE_SPACING);
+		int y = mouseY - (mouseY % MINOR_LINE_SPACING);
+		if(mouseX < 0) { x -= MINOR_LINE_SPACING; }
+		if(mouseY < 0) { y -= MINOR_LINE_SPACING; }
+		g.fillRect(x, y, MINOR_LINE_SPACING, MINOR_LINE_SPACING);
 	}
 	
 }
