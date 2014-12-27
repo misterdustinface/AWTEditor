@@ -8,13 +8,13 @@ import java.awt.event.MouseMotionListener;
 import java.awt.geom.AffineTransform;
 import java.util.LinkedList;
 
-import javax.swing.JPanel;
+import javax.swing.JComponent;
 
 import UI.Viewport;
 import UI.Zoomable;
 import data.shapes.Point;
 
-public class AWTViewport extends JPanel implements Viewport, Zoomable {
+public abstract class AWTZoomableViewport extends JComponent implements Viewport, Zoomable {
 	private static final long serialVersionUID = -3215062024839871611L;
 	protected Point position;
 	private float zoomAmount;
@@ -28,6 +28,16 @@ public class AWTViewport extends JPanel implements Viewport, Zoomable {
 	public void setZoom(float ZOOM) 	  { zoomAmount = ZOOM; }
 	public void increaseZoom(float delta) { zoomAmount += delta; }
 	public void decreaseZoom(float delta) { zoomAmount -= delta; }
+	
+	@Override
+	public void setWidth(int width) {
+		super.setSize(width, getHeight());
+	}
+
+	@Override
+	public void setHeight(int height) {
+		super.setSize(getWidth(), height);
+	}
 	
 	//private AffineTransform transform;
 	
@@ -49,26 +59,26 @@ public class AWTViewport extends JPanel implements Viewport, Zoomable {
 		repaint();
 	}
 		
-	public AWTViewport() {
+	public AWTZoomableViewport() {
 		resetToDefaultZoom();
 		position = new Point(0, 0);
 		
 		viewportMouseListeners  = new LinkedList<MouseListener>();
-		viewportMotionListeners = new LinkedList<>();
+		viewportMotionListeners = new LinkedList<MouseMotionListener>();
 		
 		this.addMouseMotionListener(new MouseMotionListener(){
 			@Override
 			public void mouseDragged(MouseEvent event) {
 				event = getWorldMouseEvent(event);
-				for(MouseMotionListener l : viewportMotionListeners) {
-					l.mouseDragged(event);
+				for(MouseMotionListener listener : viewportMotionListeners) {
+					listener.mouseDragged(event);
 				}
 			}
 			@Override
 			public void mouseMoved(MouseEvent event) {
 				event = getWorldMouseEvent(event);
-				for(MouseMotionListener l : viewportMotionListeners) {
-					l.mouseMoved(event);
+				for(MouseMotionListener listener : viewportMotionListeners) {
+					listener.mouseMoved(event);
 				}
 			}
 		});
@@ -77,51 +87,52 @@ public class AWTViewport extends JPanel implements Viewport, Zoomable {
 			@Override
 			public void mouseClicked(MouseEvent event) {
 				event = getWorldMouseEvent(event);
-				for(MouseListener l : viewportMouseListeners) {
-					l.mouseClicked(event);
+				for(MouseListener listener : viewportMouseListeners) {
+					listener.mouseClicked(event);
 				}
 			}
 			@Override
 			public void mouseEntered(MouseEvent event) {
 				event = getWorldMouseEvent(event);
-				for(MouseListener l : viewportMouseListeners) {
-					l.mouseEntered(event);
+				for(MouseListener listener : viewportMouseListeners) {
+					listener.mouseEntered(event);
 				}
 			}
 			@Override
 			public void mouseExited(MouseEvent event) {
 				event = getWorldMouseEvent(event);
-				for(MouseListener l : viewportMouseListeners) {
-					l.mouseExited(event);
+				for(MouseListener listener : viewportMouseListeners) {
+					listener.mouseExited(event);
 				}
 			}
 			@Override
 			public void mousePressed(MouseEvent event) {
 				event = getWorldMouseEvent(event);
-				for(MouseListener l : viewportMouseListeners) {
-					l.mousePressed(event);
+				for(MouseListener listener : viewportMouseListeners) {
+					listener.mousePressed(event);
 				}
 			}
 			@Override
 			public void mouseReleased(MouseEvent event) {
 				event = getWorldMouseEvent(event);
-				for(MouseListener l : viewportMouseListeners) {
-					l.mouseReleased(event);
+				for(MouseListener listener : viewportMouseListeners) {
+					listener.mouseReleased(event);
 				}
 			}
 		});
 	}
 	
-	public void addViewportMouseListener(MouseListener l) {
-		viewportMouseListeners.add(l);
+	public void addViewportMouseListener(MouseListener listener) {
+		viewportMouseListeners.add(listener);
 	}
 	
-	public void addViewportMotionListener(MouseMotionListener l) {
-		viewportMotionListeners.add(l);
+	public void addViewportMotionListener(MouseMotionListener listener) {
+		viewportMotionListeners.add(listener);
 	}
 	
 	protected void paintComponent(Graphics g) {
-		super.paintComponent(g);
+		//super.paintComponent(g);
+		super.paintComponents(g);
 		
 		AffineTransform zoom = new AffineTransform();
 		zoom.scale(zoomAmount, zoomAmount);

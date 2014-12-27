@@ -12,33 +12,24 @@ final public class AWTProgramWindow extends JFrame {
 
 	public AWTProgramWindow(String title){
 		super(title);
-		//setupLookAndFeel();
 		setupSelf();
 	}
-	
-//	private void setupLookAndFeel(){
-//		try{
-//			for(LookAndFeelInfo feel : UIManager.getInstalledLookAndFeels()){
-//				if(feel.getName() == "Nimbus"){
-//					UIManager.setLookAndFeel(feel.getClassName());
-//					SwingUtilities.updateComponentTreeUI(this);
-//				}
-//			}
-//		}catch(Exception e){
-//			try {
-//				UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-//				SwingUtilities.updateComponentTreeUI(this);
-//			} catch ( ClassNotFoundException | InstantiationException
-//					| IllegalAccessException | UnsupportedLookAndFeelException e1) {}
-//		}
-//	}
 	
 	private void setupSelf(){
 		super.setResizable(true);
 		super.setMinimumSize(MIN_SIZE);
 		super.setSize(620, 400);
-		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		super.setVisible(true);
+		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //addWindowListener(closeWindowEvent);
 	}
+	
+//	private WindowAdapter closeWindowEvent = new WindowAdapter() {
+//        @Override
+//        public void windowClosing(WindowEvent we) {
+//        	setVisible(false);
+//        	dispose();
+//        	System.exit(0);
+//        }
+//	};
 
 }

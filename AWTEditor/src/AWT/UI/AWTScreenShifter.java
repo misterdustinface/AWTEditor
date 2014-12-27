@@ -4,6 +4,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import UI.Viewport;
 import data.shapes.Point;
 
 public class AWTScreenShifter implements MouseListener, MouseMotionListener {
@@ -11,9 +12,9 @@ public class AWTScreenShifter implements MouseListener, MouseMotionListener {
 	private boolean shiftingScreen;
 	private Point 	lastOffset;
 	
-	private AWTViewport viewport;
+	private Viewport viewport;
 	
-	public AWTScreenShifter(AWTViewport VIEWPORT) {
+	public AWTScreenShifter(Viewport VIEWPORT) {
 		viewport = VIEWPORT;
 		shiftingScreen = false;
 		lastOffset     = new Point(0,0);

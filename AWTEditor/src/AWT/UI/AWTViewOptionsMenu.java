@@ -3,11 +3,13 @@ package AWT.UI;
 import generic.VoidFunctionPointer;
 import UI.MenuButton;
 import UI.StaticListMenu;
+import UI.Viewport;
+import UI.Zoomable;
 import data.shapes.Point;
 
-public class AWTViewportOptionsMenu extends AWTDropdownMenu {
+public class AWTViewOptionsMenu extends AWTDropdownMenu {
 
-	public AWTViewportOptionsMenu(final AWTViewport VIEWPORT) {
+	public AWTViewOptionsMenu(final Viewport VIEWPORT, final Zoomable ZOOMER) {
 		super();
 
 		AWTMenuButton optionsButton = new AWTMenuButton();
@@ -21,7 +23,7 @@ public class AWTViewportOptionsMenu extends AWTDropdownMenu {
 		resetZoom.setButtonPressedFunction(new VoidFunctionPointer() {
 			@Override
 			public void call() {
-				VIEWPORT.resetToDefaultZoom();
+				ZOOMER.resetToDefaultZoom();
 			}
 		});
 		

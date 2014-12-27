@@ -6,8 +6,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import AWT.UI.AWTUILayer;
-import AWT.UI.AWTViewport;
 import UI.MouseUserDevice;
+import UI.Viewport;
+import UI.Zoomable;
 import data.shapes.Rectangle;
 
 public class AWTGridDrawer implements AWTUILayer {
@@ -20,19 +21,23 @@ public class AWTGridDrawer implements AWTUILayer {
 	public int 	MINOR_LINE_SPACING 	= 16;
 	public int 	MAJOR_LINE_SPACING 	= MINOR_LINE_SPACING * 8;
 	
-	private int 	xPos, yPos, width, height;
+	private int 	xPos, yPos;
+	private float   width, height;
 	private float 	zoom;
 	
 	private Rectangle drawingBounds;
-	private AWTViewport  viewport;
+	private Viewport  viewport;
+	private Zoomable  zoomer;
 	
 	private int mouseX, mouseY;
 	
-	public AWTGridDrawer(AWTViewport VIEWPORT){
-		xPos = yPos = width = height = 0;
+	public AWTGridDrawer(Viewport VIEWPORT, Zoomable ZOOMER){
+		xPos = yPos = 0;
+		width = height = 0;
 		zoom = 1.0f;
 		drawingBounds = new Rectangle();
 		viewport = VIEWPORT;
+		zoomer   = ZOOMER;
 	}
 	
 	@Override
@@ -48,14 +53,14 @@ public class AWTGridDrawer implements AWTUILayer {
 	public void update(MouseUserDevice mouse) {
 		setCenter((int)viewport.getXPosition(), (int)viewport.getYPosition());
 		setDimensions(viewport.getWidth(), viewport.getHeight());
-		setZoom(viewport.getZoom());
+		setZoom(zoomer.getZoom());
 		calculateDrawingBounds();
 		mouseX = (int)mouse.getCursorX();
 		mouseY = (int)mouse.getCursorY();
 	}
 	
 	private void setCenter(int X, int Y) { xPos = X; yPos = Y; }
-	private void setDimensions(int WIDTH, int HEIGHT) { width = WIDTH; height = HEIGHT; }
+	private void setDimensions(float WIDTH, float HEIGHT) { width = WIDTH; height = HEIGHT; }
 	private void setZoom(float ZOOM) { zoom = ZOOM; }
 	
 	private void calculateDrawingBounds(){
