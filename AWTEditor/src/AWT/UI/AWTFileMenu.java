@@ -97,7 +97,7 @@ public class AWTFileMenu extends AWTDropdownMenu {
 		MenuButton[] fileMenuOptions = new MenuButton[] { saveButton, openButton };
 		StaticListMenu list = new StaticListMenu();
 		list.setButtons(fileMenuOptions);
-		list.setPostition(new Point(2,2 + fileButton.getHeight()));
+		list.setPosition(new Point(2,2 + fileButton.getHeight()));
 		list.setButtonOffset(2);
 		list.setButtonDimensions((int)fileButton.getWidth() - 4, (int)fileButton.getHeight() - 4);
 		

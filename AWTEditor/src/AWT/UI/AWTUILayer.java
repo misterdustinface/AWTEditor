@@ -1,6 +1,6 @@
 package AWT.UI;
 
-import rendering.Renderable;
+import AWT.rendering.AWTRenderable;
 import UI.UILayer;
 
-public interface AWTUILayer extends UILayer, Renderable {}
+public interface AWTUILayer extends UILayer, AWTRenderable {}

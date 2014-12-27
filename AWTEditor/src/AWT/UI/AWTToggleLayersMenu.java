@@ -1,16 +1,16 @@
 package AWT.UI;
 
 import generic.VoidFunctionPointer;
-import UI.LayerManager;
+import UI.UILayerManager;
 import UI.MenuButton;
 import UI.StaticListMenu;
 import data.shapes.Point;
 
 public class AWTToggleLayersMenu extends AWTDropdownMenu {
 
-	private LayerManager layerManager;
+	private UILayerManager layerManager;
 	
-	public AWTToggleLayersMenu(LayerManager LAYER_MANAGER) {
+	public AWTToggleLayersMenu(UILayerManager LAYER_MANAGER) {
 		super();
 		layerManager = LAYER_MANAGER;
 		setup();
@@ -40,7 +40,7 @@ public class AWTToggleLayersMenu extends AWTDropdownMenu {
 		MenuButton[] menuButtons = new MenuButton[] { };
 		StaticListMenu list = new StaticListMenu();
 		list.setButtons(menuButtons);
-		list.setPostition(new Point(142,2 + optionsButton.getHeight()));
+		list.setPosition(new Point(142,2 + optionsButton.getHeight()));
 		list.setButtonOffset(2);
 		list.setButtonDimensions((int)optionsButton.getWidth() - 4, (int)optionsButton.getHeight() - 4);
 		

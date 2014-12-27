@@ -8,7 +8,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 
-import UI.LayerManager;
+import UI.UILayerManager;
 import UI.UIFunction;
 import UI.UILayer;
 import AWT.graphicdata.AWTGraphicData;
@@ -19,7 +19,7 @@ public class AWTEditorPanel extends AWTViewport {
 
 	final public static Cursor INVISIBLE_CURSOR = Toolkit.getDefaultToolkit().createCustomCursor((Image)(new BufferedImage(4, 4, BufferedImage.TYPE_INT_ARGB)),new java.awt.Point(0, 0), "INVISIBLE");
 	
-	private LayerManager	layerManager;
+	private UILayerManager	layerManager;
 	private AWTMouseUserDevice mouse;
 	
 	//private SwingVKeyDriver   vKey;
@@ -35,7 +35,7 @@ public class AWTEditorPanel extends AWTViewport {
 		setDoubleBuffered(true);
 	}
 	
-	public void setLayerManager(LayerManager layerManager) {
+	public void setLayerManager(UILayerManager layerManager) {
 		this.layerManager = layerManager;
 	}
 	

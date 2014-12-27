@@ -1,6 +1,6 @@
 package AWT.update;
 
-import UI.LayerManager;
+import UI.UILayerManager;
 import UI.UIFunction;
 import UI.UILayer;
 import generic.ProgramMain;
@@ -11,19 +11,19 @@ import AWT.UI.AWTUILayer;
 
 public class AWTProgramMain extends ProgramMain {
 	
-	public static ProgramMain create(LayerManager LAYER_MANAGER, AWTMouseUserDevice MOUSE_USER_DEVICE) {
+	public static ProgramMain create(UILayerManager LAYER_MANAGER, AWTMouseUserDevice MOUSE_USER_DEVICE) {
 		return new AWTProgramMain(LAYER_MANAGER, MOUSE_USER_DEVICE);
 	}
 	
 	private AWTMouseUserDevice	mouse;
-	private LayerManager		layerManager;
+	private UILayerManager		layerManager;
 	private UIFunction uiUpdate = new UIFunction() {
 		public void call(UILayer ui) {
 			((AWTUILayer)ui).update(mouse);
 		}
 	};
 	
-	private AWTProgramMain(LayerManager LAYER_MANAGER, AWTMouseUserDevice MOUSE_USER_DEVICE) {
+	private AWTProgramMain(UILayerManager LAYER_MANAGER, AWTMouseUserDevice MOUSE_USER_DEVICE) {
 		super();
 		
 		layerManager 	= LAYER_MANAGER;
