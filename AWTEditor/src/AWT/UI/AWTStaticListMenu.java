@@ -10,7 +10,7 @@ public class AWTStaticListMenu extends StaticListMenu implements AWTUILayer {
 	protected AWTMenuDrawer menuDrawer;
 	
 	public AWTStaticListMenu() {
-		menuDrawer = new AWTMenuDrawer();
+		menuDrawer = AWTMenuDrawer.getMenuDrawer();
 	}
 	
 	@Override

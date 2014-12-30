@@ -6,7 +6,7 @@ import UI.UILayerManager;
 import UI.MenuButton;
 import UI.StaticListMenu;
 
-public class AWTToggleLayersMenu extends AWTDropdownMenu {
+public class AWTToggleLayersMenu extends AWTDropdownListMenu {
 
 	private UILayerManager layerManager;
 	

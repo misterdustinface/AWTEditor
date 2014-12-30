@@ -7,7 +7,7 @@ import UI.StaticListMenu;
 import UI.Viewport;
 import UI.Zoomable;
 
-public class AWTViewOptionsMenu extends AWTDropdownMenu {
+public class AWTViewOptionsMenu extends AWTDropdownListMenu {
 
 	public AWTViewOptionsMenu(final Viewport VIEWPORT, final Zoomable ZOOMER) {
 		super();

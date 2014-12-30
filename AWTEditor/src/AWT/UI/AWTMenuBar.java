@@ -11,7 +11,7 @@ public class AWTMenuBar extends MenuBar implements AWTUILayer {
 	protected AWTMenuDrawer menuDrawer;
 	
 	public AWTMenuBar() {
-		menuDrawer = new AWTMenuDrawer();
+		menuDrawer = AWTMenuDrawer.getMenuDrawer();
 	}
 	
 	@Override

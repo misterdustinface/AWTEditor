@@ -12,7 +12,7 @@ public class AWTStaticGridMenu extends StaticGridMenu implements AWTUILayer {
 	
 	public AWTStaticGridMenu(Grid DISPLAYGRID) {
 		super(DISPLAYGRID);
-		menuDrawer = new AWTMenuDrawer();
+		menuDrawer = AWTMenuDrawer.getMenuDrawer();
 	}
 	
 	@Override

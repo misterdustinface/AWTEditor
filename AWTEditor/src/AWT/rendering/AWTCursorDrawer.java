@@ -3,9 +3,14 @@ package AWT.rendering;
 import rendering.CursorDrawer;
 import AWT.graphicdata.AWTGraphicData;
 
-public class AWTCursorDrawer extends AWTRenderer implements CursorDrawer {
+final public class AWTCursorDrawer extends AWTRenderer implements CursorDrawer {
 	
-	public AWTCursorDrawer() {}
+	private static AWTCursorDrawer cursorDrawer = new AWTCursorDrawer();
+	private AWTCursorDrawer() {}
+	
+	public static AWTCursorDrawer getCursorDrawer() {
+		return cursorDrawer;
+	}
 	
 	public void drawCrosshairCursor(int X, int Y){
 		graphics.drawLine(	X - AWTGraphicData.cursorStretchOutAmount, Y, 

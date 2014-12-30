@@ -12,7 +12,7 @@ public class AWTSimpleUserDeviceDisplayLayer implements AWTUILayer {
 	
 	public AWTSimpleUserDeviceDisplayLayer(AWTMouseUserDevice USER_DEVICE) {
 		userDevice = USER_DEVICE;
-		cursorDrawer = new AWTCursorDrawer();
+		cursorDrawer = AWTCursorDrawer.getCursorDrawer();
 	}
 	
 	@Override

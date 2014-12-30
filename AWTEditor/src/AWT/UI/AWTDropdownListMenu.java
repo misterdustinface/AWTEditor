@@ -3,14 +3,14 @@ package AWT.UI;
 import java.awt.Graphics2D;
 
 import AWT.rendering.AWTMenuDrawer;
-import UI.DropdownMenu;
+import UI.DropdownListMenu;
 
-public class AWTDropdownMenu extends DropdownMenu implements AWTUILayer {
+public class AWTDropdownListMenu extends DropdownListMenu implements AWTUILayer {
 
 	protected AWTMenuDrawer menuDrawer;
 	
-	public AWTDropdownMenu() {
-		menuDrawer = new AWTMenuDrawer();
+	public AWTDropdownListMenu() {
+		menuDrawer = AWTMenuDrawer.getMenuDrawer();
 	}
 	
 	@Override

@@ -12,7 +12,7 @@ public abstract class AWTDynamicGridMenu extends DynamicGridMenu implements AWTU
 	
 	public AWTDynamicGridMenu(Grid DISPLAYGRID) {
 		super(DISPLAYGRID);
-		menuDrawer = new AWTMenuDrawer();
+		menuDrawer = AWTMenuDrawer.getMenuDrawer();
 	}
 	
 	@Override

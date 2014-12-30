@@ -55,7 +55,7 @@ public class AWTColorChooserMenu extends DataModificationNotifier implements AWT
 		
 		setSlidersToMatchColorData();
 		
-		menuDrawer = new AWTMenuDrawer();
+		menuDrawer = AWTMenuDrawer.getMenuDrawer();
 		buttons = new ArrayList<AWTMenuButton>();
 	}
 	

@@ -13,7 +13,7 @@ import file.LuaScriptFiler;
 import generic.DataModificationListener;
 import generic.VoidFunctionPointer;
 
-public class AWTFileMenu extends AWTDropdownMenu {
+public class AWTFileMenu extends AWTDropdownListMenu {
 
 	private LuaScriptFiler filer;
 	

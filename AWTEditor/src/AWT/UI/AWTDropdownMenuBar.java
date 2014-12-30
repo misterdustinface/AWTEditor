@@ -19,7 +19,7 @@ public class AWTDropdownMenuBar implements AWTUILayer {
 	private int width;
 	
 	public AWTDropdownMenuBar() {
-		menuDrawer = new AWTMenuDrawer();
+		menuDrawer = AWTMenuDrawer.getMenuDrawer();
 		isDropped  = false;
 		button 	   = new AWTMenuButton();
 		width      = 8;

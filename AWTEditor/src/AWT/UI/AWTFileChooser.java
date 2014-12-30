@@ -11,7 +11,7 @@ public class AWTFileChooser extends FileChooser implements AWTUILayer {
 	private AWTMenuDrawer menuDrawer;
 	
 	public AWTFileChooser() {
-		menuDrawer = new AWTMenuDrawer();
+		menuDrawer = AWTMenuDrawer.getMenuDrawer();
 	}
 	
 	protected MenuButton makeButton() { return new AWTMenuButton(); }

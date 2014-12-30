@@ -10,7 +10,17 @@ import AWT.graphicdata.AWTGraphicData;
 
 final public class AWTShapeDrawer extends AWTRenderer implements ShapeDrawer {
 	
-	public AWTShapeDrawer() {}
+	private static AWTShapeDrawer shapeDrawer = new AWTShapeDrawer();
+	
+	private AWTTriangleFiller triangleFiller;
+	
+	private AWTShapeDrawer() {
+		triangleFiller = new AWTTriangleFiller();
+	}
+	
+	public static AWTShapeDrawer getShapeDrawer() {
+		return shapeDrawer;
+	}
 	
 	public void drawPoint(Point p){
 		graphics.fillOval(	(int)((p.x-((AWTGraphicData.pointSize)>>1))), 
@@ -59,29 +69,37 @@ final public class AWTShapeDrawer extends AWTRenderer implements ShapeDrawer {
 		
 		if(p.getNumberOfPoints() > 2) {
 			
-			fillTriangle(	(int)p.xpoints[0],   (int)p.ypoints[0], 
-							(int)p.xpoints[p.getNumberOfPoints() - 1], (int)p.ypoints[p.getNumberOfPoints() - 1],
-							(int)p.xpoints[p.getNumberOfPoints() - 2], (int)p.ypoints[p.getNumberOfPoints() - 2]);
+			triangleFiller.fill((int)p.xpoints[0],   (int)p.ypoints[0], 
+								(int)p.xpoints[p.getNumberOfPoints() - 1], (int)p.ypoints[p.getNumberOfPoints() - 1],
+								(int)p.xpoints[p.getNumberOfPoints() - 2], (int)p.ypoints[p.getNumberOfPoints() - 2]);
 			
-			fillTriangle(	(int)p.xpoints[0],   (int)p.ypoints[0],
-							(int)p.xpoints[1],   (int)p.ypoints[1], 
-							(int)p.xpoints[p.getNumberOfPoints() - 1], (int)p.ypoints[p.getNumberOfPoints() - 1]);
+			triangleFiller.fill((int)p.xpoints[0],   (int)p.ypoints[0],
+								(int)p.xpoints[1],   (int)p.ypoints[1], 
+								(int)p.xpoints[p.getNumberOfPoints() - 1], (int)p.ypoints[p.getNumberOfPoints() - 1]);
 			
 			for(int i = 0; i < p.getNumberOfPoints() - 2; ++i) {
-				fillTriangle(	(int)p.xpoints[i],   (int)p.ypoints[i], 
-								(int)p.xpoints[i+1], (int)p.ypoints[i+1],
-								(int)p.xpoints[i+2], (int)p.ypoints[i+2]);
+				triangleFiller.fill((int)p.xpoints[i],   (int)p.ypoints[i], 
+									(int)p.xpoints[i+1], (int)p.ypoints[i+1],
+									(int)p.xpoints[i+2], (int)p.ypoints[i+2]);
 			}
 		}
 		
 	}
 	
-	private static int[] xAr = new int[3];
-	private static int[] yAr = new int[3];
-	private void fillTriangle(int x1, int y1, int x2, int y2, int x3, int y3) {
-		xAr[0] = x1; xAr[1] = x2; xAr[2] = x3;
-		yAr[0] = y1; yAr[1] = y2; yAr[2] = y3;
-		graphics.fillPolygon(xAr, yAr, 3);
+	class AWTTriangleFiller {
+		private int[] xAr;
+		private int[] yAr;
+		
+		AWTTriangleFiller() {
+			xAr = new int[3]; 
+			yAr = new int[3]; 
+		}
+		
+		public void fill(int x1, int y1, int x2, int y2, int x3, int y3) {
+			xAr[0] = x1; xAr[1] = x2; xAr[2] = x3;
+			yAr[0] = y1; yAr[1] = y2; yAr[2] = y3;
+			graphics.fillPolygon(xAr, yAr, 3);
+		}
 	}
 	
 }

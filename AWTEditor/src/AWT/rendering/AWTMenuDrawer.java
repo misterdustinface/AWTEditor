@@ -11,12 +11,18 @@ import UI.MenuButton;
 import UI.TextLabel;
 import UI.UIMenu;
 
-public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer {
+final public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer {
 
+	private static AWTMenuDrawer menuDrawer = new AWTMenuDrawer();
+	
 	private AWTShapeDrawer shapeDrawer;
 	
-	public AWTMenuDrawer() {
-		shapeDrawer = new AWTShapeDrawer();
+	private AWTMenuDrawer() {
+		shapeDrawer = AWTShapeDrawer.getShapeDrawer();
+	}
+	
+	public static AWTMenuDrawer getMenuDrawer() {
+		return menuDrawer;
 	}
 	
 	public void drawTextLabel( TextLabel tl) {
