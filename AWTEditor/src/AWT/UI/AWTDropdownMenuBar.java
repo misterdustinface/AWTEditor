@@ -22,23 +22,17 @@ public class AWTDropdownMenuBar implements AWTUILayer {
 		menuDrawer = new AWTMenuDrawer();
 		isDropped  = false;
 		button 	   = new AWTMenuButton();
-		
-		width = 8;
-		
-		ArrowButton.up(button, new Point(width, 0), 0, width);
+		width      = 8;
 		
 		button.setButtonPressedFunction(new VoidFunctionPointer() {
 			@Override
 			public void call() {
 				isDropped = ! isDropped;
 				
-				Point position = new Point(menuBar.getPosition().x + 2*width, menuBar.getPosition().y + 2*width);
-				
 				if(isDropped) {
-					position.shift(0, -width);
-					ArrowButton.up(button, position, 0, width);
+					setArrowUp();
 				} else {
-					ArrowButton.down(button, position, 0, width);
+					setArrowDown();
 				}
 			}
 		});
@@ -46,25 +40,12 @@ public class AWTDropdownMenuBar implements AWTUILayer {
 	
 	public void setMenuBar(AWTMenuBar MENU_BAR) {
 		menuBar = MENU_BAR;
-	}
-
-	private void moveButtonPosition() {
-		
-		Point position = new Point(menuBar.getPosition().x + 2*width, menuBar.getPosition().y + 2*width);
-		
-		if(isDropped) {
-			position.shift(0, -width);
-			ArrowButton.up(button, position, 0, width);
-		} else {
-			ArrowButton.down(button, position, 0, width);
-		}
-		
-		// TODO use polygon set position functions when it works.
+		setArrowDown();
 	}
 	
 	@Override
 	public void update(MouseUserDevice mouse) {
-		moveButtonPosition();
+		updateArrowButtonPosition();
 		button.update(mouse);
 		
 		if(isDropped) {
@@ -79,5 +60,24 @@ public class AWTDropdownMenuBar implements AWTUILayer {
 		if(isDropped) {
 			menuBar.render(g);
 		}
+	}
+	
+	private void setArrowUp() {
+		Point position = getDesiredButtonPosition();
+		ArrowButton.up(button, position, 0, width);
+		button.shift(0, -width);
+	}
+	
+	private void setArrowDown() {
+		Point position = getDesiredButtonPosition();
+		ArrowButton.down(button, position, 0, width);
+	}
+	
+	private Point getDesiredButtonPosition() {
+		return new Point(menuBar.getPosition().x + 2*width, menuBar.getPosition().y + 2*width);
+	}
+	
+	private void updateArrowButtonPosition() {
+		button.setPosition(getDesiredButtonPosition());
 	}
 }
