@@ -10,9 +10,9 @@ import java.util.LinkedList;
 
 import javax.swing.JComponent;
 
+import shapes.Point;
 import UI.Viewport;
 import UI.Zoomable;
-import data.shapes.Point;
 
 public abstract class AWTZoomableViewport extends JComponent implements Viewport, Zoomable {
 	private static final long serialVersionUID = -3215062024839871611L;

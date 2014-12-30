@@ -2,9 +2,9 @@ package AWT.UI;
 
 import java.awt.Graphics2D;
 
+import shapes.Grid;
 import AWT.rendering.AWTMenuDrawer;
 import UI.DynamicGridMenu;
-import data.shapes.Grid;
 
 public abstract class AWTDynamicGridMenu extends DynamicGridMenu implements AWTUILayer  {
 

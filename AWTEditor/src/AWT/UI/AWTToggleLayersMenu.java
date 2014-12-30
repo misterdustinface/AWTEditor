@@ -1,10 +1,10 @@
 package AWT.UI;
 
+import shapes.Point;
 import generic.VoidFunctionPointer;
 import UI.UILayerManager;
 import UI.MenuButton;
 import UI.StaticListMenu;
-import data.shapes.Point;
 
 public class AWTToggleLayersMenu extends AWTDropdownMenu {
 

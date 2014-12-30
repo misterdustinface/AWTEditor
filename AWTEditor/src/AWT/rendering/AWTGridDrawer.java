@@ -5,11 +5,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
+import shapes.Rectangle;
 import AWT.UI.AWTUILayer;
 import UI.MouseUserDevice;
 import UI.Viewport;
 import UI.Zoomable;
-import data.shapes.Rectangle;
 
 public class AWTGridDrawer implements AWTUILayer {
 	

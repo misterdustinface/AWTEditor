@@ -7,10 +7,10 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
+import shapes.Rectangle;
 import AWT.graphicdata.AWTGraphicData;
 import AWT.rendering.AWTMenuDrawer;
 import UI.MouseUserDevice;
-import data.shapes.Rectangle;
 
 public class AWTColorChooserMenu extends DataModificationNotifier implements AWTUILayer {
 	

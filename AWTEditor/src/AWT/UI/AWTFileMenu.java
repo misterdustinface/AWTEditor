@@ -5,10 +5,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
+import shapes.Point;
 import UI.MenuButton;
 import UI.MouseUserDevice;
 import UI.StaticListMenu;
-import data.shapes.Point;
 import file.LuaScriptFiler;
 import generic.DataModificationListener;
 import generic.VoidFunctionPointer;

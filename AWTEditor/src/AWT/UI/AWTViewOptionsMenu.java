@@ -1,11 +1,11 @@
 package AWT.UI;
 
+import shapes.Point;
 import generic.VoidFunctionPointer;
 import UI.MenuButton;
 import UI.StaticListMenu;
 import UI.Viewport;
 import UI.Zoomable;
-import data.shapes.Point;
 
 public class AWTViewOptionsMenu extends AWTDropdownMenu {
 

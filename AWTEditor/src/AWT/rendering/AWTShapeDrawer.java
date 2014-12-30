@@ -1,12 +1,12 @@
 package AWT.rendering;
 
 import rendering.ShapeDrawer;
+import shapes.Circle;
+import shapes.LineSegment;
+import shapes.Point;
+import shapes.Polygon;
+import shapes.Rectangle;
 import AWT.graphicdata.AWTGraphicData;
-import data.shapes.Circle;
-import data.shapes.LineSegment;
-import data.shapes.Point;
-import data.shapes.Polygon;
-import data.shapes.Rectangle;
 
 final public class AWTShapeDrawer extends AWTRenderer implements ShapeDrawer {
 	

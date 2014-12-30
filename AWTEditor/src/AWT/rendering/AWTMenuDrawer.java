@@ -1,6 +1,7 @@
 package AWT.rendering;
 
 import rendering.MenuDrawer;
+import shapes.Point;
 import AWT.UI.AWTBarSlider;
 import AWT.UI.AWTMenuButton;
 import AWT.graphicdata.AWTGraphicData;
@@ -9,7 +10,6 @@ import UI.FileChooser;
 import UI.MenuButton;
 import UI.TextLabel;
 import UI.UIMenu;
-import data.shapes.Point;
 
 public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer {
 

@@ -7,8 +7,8 @@ import generic.VoidFunctionPointer;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import shapes.Grid;
 import UI.MouseUserDevice;
-import data.shapes.Grid;
 
 public class AWTColorPaletteMenu extends AWTDynamicGridMenu {
 

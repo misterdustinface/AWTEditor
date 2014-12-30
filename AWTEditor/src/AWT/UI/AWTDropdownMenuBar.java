@@ -4,7 +4,7 @@ import generic.VoidFunctionPointer;
 
 import java.awt.Graphics2D;
 
-import data.shapes.Point;
+import shapes.Point;
 import AWT.rendering.AWTMenuDrawer;
 import UI.ArrowButton;
 import UI.MouseUserDevice;
