@@ -18,6 +18,7 @@ public abstract class AWTZoomableViewport extends JComponent implements Viewport
 	private static final long serialVersionUID = -3215062024839871611L;
 	protected Point position;
 	private float zoomAmount;
+	private AffineTransform transform;
 	private LinkedList<MouseListener>       viewportMouseListeners;
 	private LinkedList<MouseMotionListener> viewportMotionListeners;
 	
@@ -38,8 +39,6 @@ public abstract class AWTZoomableViewport extends JComponent implements Viewport
 	public void setHeight(int height) {
 		super.setSize(getWidth(), height);
 	}
-	
-	//private AffineTransform transform;
 	
 	public void resetToDefaultZoom(){
 		zoomAmount = 1;
@@ -65,6 +64,8 @@ public abstract class AWTZoomableViewport extends JComponent implements Viewport
 		
 		viewportMouseListeners  = new LinkedList<MouseListener>();
 		viewportMotionListeners = new LinkedList<MouseMotionListener>();
+		
+		transform = new AffineTransform();
 		
 		this.addMouseMotionListener(new MouseMotionListener(){
 			@Override
@@ -131,13 +132,11 @@ public abstract class AWTZoomableViewport extends JComponent implements Viewport
 	}
 	
 	protected void paintComponent(Graphics g) {
-		//super.paintComponent(g);
 		super.paintComponents(g);
-		
-		AffineTransform zoom = new AffineTransform();
-		zoom.scale(zoomAmount, zoomAmount);
-		zoom.translate(position.x, position.y);
-		((Graphics2D)g).setTransform(zoom);
+		transform.setToIdentity();
+		transform.scale(zoomAmount, zoomAmount);
+		transform.translate(position.x, position.y);
+		((Graphics2D)g).setTransform(transform);
 	}
 	
 	private MouseEvent getWorldMouseEvent(MouseEvent panelEvent) {		
