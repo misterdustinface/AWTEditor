@@ -12,12 +12,15 @@ public abstract class AWTBarSlider extends BarSlider {
 	private Color 	  highlightColor;
 	private Color     baseColor;
 	
+	private AWTGraphicData graphicData;
+	
 	public AWTBarSlider() {
 		super();	
-		pressedColor  = AWTGraphicData.buttonPressedColor; 
-		releasedColor = AWTGraphicData.buttonColor;         
-		highlightColor= AWTGraphicData.buttonHighlightColor;
-		baseColor     = AWTGraphicData.baseColor;
+		graphicData = AWTGraphicData.getGraphicData();
+		pressedColor  = graphicData.buttonPressedColor; 
+		releasedColor = graphicData.buttonColor;         
+		highlightColor= graphicData.buttonHighlightColor;
+		baseColor     = graphicData.baseColor;
 	}
 	
 	public void setBaseColor(Color c) { baseColor = c; }

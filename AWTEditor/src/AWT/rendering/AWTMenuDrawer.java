@@ -16,9 +16,11 @@ final public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer {
 	private static AWTMenuDrawer menuDrawer = new AWTMenuDrawer();
 	
 	private AWTShapeDrawer shapeDrawer;
+	private AWTGraphicData graphicData;
 	
 	private AWTMenuDrawer() {
 		shapeDrawer = AWTShapeDrawer.getShapeDrawer();
+		graphicData = AWTGraphicData.getGraphicData();
 	}
 	
 	public static AWTMenuDrawer getMenuDrawer() {
@@ -62,10 +64,10 @@ final public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer {
 		int plusWidth  = (int) b.getWidth() >>1;
 		int plusHeight = (int) b.getHeight()>>1;
 		plusWidth  = plusWidth < plusHeight ? plusWidth : plusHeight;
-		plusHeight = AWTGraphicData.plusSignThickness;
+		plusHeight = graphicData.plusSignThickness;
 		
 		shapeDrawer.setGraphics(graphics);
-		shapeDrawer.setColor(AWTGraphicData.PLUS_SIGN_COLOR);
+		shapeDrawer.setColor(graphicData.PLUS_SIGN_COLOR);
 		graphics.fillRect(centerX - (plusWidth >>1), centerY - (plusHeight>>1), plusWidth,  plusHeight);
 		graphics.fillRect(centerX - (plusHeight>>1), centerY - (plusWidth >>1), plusHeight, plusWidth);
 	}
@@ -91,9 +93,9 @@ final public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer {
 	}
 	
 	public void drawMenuBox( int X, int Y, int width, int height) {
-		graphics.setColor(AWTGraphicData.MENU_BACKGROUND_COLOR);
+		graphics.setColor(graphicData.MENU_BACKGROUND_COLOR);
 		graphics.fillRect(X, Y, width, height);
-		graphics.setColor(AWTGraphicData.buttonColor);
+		graphics.setColor(graphicData.buttonColor);
 		graphics.drawRect(X, Y, width, height);
 	}
 	

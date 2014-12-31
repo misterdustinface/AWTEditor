@@ -12,10 +12,12 @@ final public class AWTShapeDrawer extends AWTRenderer implements ShapeDrawer {
 	
 	private static AWTShapeDrawer shapeDrawer = new AWTShapeDrawer();
 	
-	private AWTTriangleFiller triangleFiller;
+	private AWTTriangleFiller 	triangleFiller;
+	private AWTGraphicData 		graphicData;
 	
 	private AWTShapeDrawer() {
 		triangleFiller = new AWTTriangleFiller();
+		graphicData = AWTGraphicData.getGraphicData();
 	}
 	
 	public static AWTShapeDrawer getShapeDrawer() {
@@ -23,9 +25,9 @@ final public class AWTShapeDrawer extends AWTRenderer implements ShapeDrawer {
 	}
 	
 	public void drawPoint(Point p){
-		graphics.fillOval(	(int)((p.x-((AWTGraphicData.pointSize)>>1))), 
-							(int)((p.y-((AWTGraphicData.pointSize)>>1))), 
-							AWTGraphicData.pointSize, AWTGraphicData.pointSize);
+		graphics.fillOval(	(int)((p.x-((graphicData.pointSize)>>1))), 
+							(int)((p.y-((graphicData.pointSize)>>1))), 
+							graphicData.pointSize, graphicData.pointSize);
 	}
 	
 	public void drawLineSegment(LineSegment l){

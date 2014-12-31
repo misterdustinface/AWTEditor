@@ -20,6 +20,8 @@ public class AWTEditorPanel extends AWTZoomableViewport {
 
 	final public static Cursor INVISIBLE_CURSOR = Toolkit.getDefaultToolkit().createCustomCursor((Image)(new BufferedImage(4, 4, BufferedImage.TYPE_INT_ARGB)),new java.awt.Point(0, 0), "INVISIBLE");
 	
+	private AWTGraphicData graphicData;
+	
 	private UILayerManager layerManager;
 	private Graphics2D graphics2D;
 	private UIFunction uiRender = new UIFunction() {
@@ -31,7 +33,8 @@ public class AWTEditorPanel extends AWTZoomableViewport {
 	
 	public AWTEditorPanel() {
 		setCursor(INVISIBLE_CURSOR);
-		setBackground(AWTGraphicData.BACKGROUND_COLOR);
+		graphicData = AWTGraphicData.getGraphicData();
+		setBackground(graphicData.BACKGROUND_COLOR);
 		setDoubleBuffered(true);
 	}
 	
