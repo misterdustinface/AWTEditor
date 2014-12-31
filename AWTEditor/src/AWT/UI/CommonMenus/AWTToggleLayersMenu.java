@@ -1,7 +1,11 @@
-package AWT.UI;
+package AWT.UI.CommonMenus;
 
 import generic.VoidFunctionPointer;
 import shapes.Point;
+import AWT.UI.AWTDropdownListMenu;
+import AWT.UI.AWTMenuButton;
+import AWT.UI.AWTStaticListMenu;
+import AWT.UI.AWTUILayer;
 import UI.MenuButton;
 import UI.UILayerManager;
 

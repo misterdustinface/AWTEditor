@@ -1,8 +1,9 @@
-package AWT.UI;
+package AWT.UI.Mouse;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import AWT.UI.AWTUILayer;
 import AWT.rendering.AWTCursorDrawer;
 import UI.MouseUserDevice;
 

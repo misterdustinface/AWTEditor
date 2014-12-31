@@ -1,4 +1,4 @@
-package AWT.UI;
+package AWT.UI.CommonMenus;
 
 import java.awt.Graphics2D;
 import java.io.FileInputStream;
@@ -7,6 +7,11 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 import shapes.Point;
+import AWT.UI.AWTDropdownListMenu;
+import AWT.UI.AWTFileChooser;
+import AWT.UI.AWTMenuButton;
+import AWT.UI.AWTStaticListMenu;
+import AWT.UI.AWTUILayer;
 import UI.ButtonMenu;
 import UI.MenuButton;
 import UI.MouseUserDevice;

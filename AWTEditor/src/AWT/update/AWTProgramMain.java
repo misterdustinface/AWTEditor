@@ -5,8 +5,8 @@ import UI.UIFunction;
 import UI.UILayer;
 import generic.ProgramMain;
 import generic.VoidFunctionPointer;
-import AWT.UI.AWTMouseUserDevice;
 import AWT.UI.AWTUILayer;
+import AWT.UI.Mouse.AWTMouseUserDevice;
 
 
 public class AWTProgramMain extends ProgramMain {

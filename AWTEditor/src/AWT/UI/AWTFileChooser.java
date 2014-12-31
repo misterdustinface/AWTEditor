@@ -14,14 +14,17 @@ public class AWTFileChooser extends FileChooser implements AWTUILayer {
 		menuDrawer = AWTMenuDrawer.getMenuDrawer();
 	}
 	
-	protected MenuButton makeButton() { return new AWTMenuButton(); }
-	
 	@Override
 	public void render(Graphics2D g) {
 		if(shouldDisplayAndUpdate()) {
 			menuDrawer.setGraphics(g);
 			menuDrawer.drawFileChooser(this);
 		}
+	}
+	
+	@Override
+	protected MenuButton extendedMenuButton() { 
+		return new AWTMenuButton(); 
 	}
 	
 }

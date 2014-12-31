@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage;
 import UI.UILayerManager;
 import UI.UIFunction;
 import UI.UILayer;
+import AWT.UI.Mouse.AWTMouseUserDevice;
 import AWT.graphicdata.AWTGraphicData;
 
 public class AWTEditorPanel extends AWTZoomableViewport {
