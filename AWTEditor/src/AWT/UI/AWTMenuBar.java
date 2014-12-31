@@ -3,8 +3,8 @@ package AWT.UI;
 import java.awt.Graphics2D;
 
 import AWT.rendering.AWTMenuDrawer;
+import UI.ButtonMenu;
 import UI.MenuBar;
-import UI.UIMenu;
 
 public class AWTMenuBar extends MenuBar implements AWTUILayer {
 
@@ -20,7 +20,7 @@ public class AWTMenuBar extends MenuBar implements AWTUILayer {
 		
 		menuDrawer.drawMenuBox((int)boundingBox.x, (int)boundingBox.y, (int)boundingBox.width, (int)boundingBox.height);
 		
-		for(UIMenu menu : menus) {
+		for(ButtonMenu menu : menus) {
 			((AWTUILayer)menu).render(g);			
 		}
 	}

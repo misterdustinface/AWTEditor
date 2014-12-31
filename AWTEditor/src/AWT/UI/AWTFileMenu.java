@@ -4,23 +4,25 @@ import java.awt.Graphics2D;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 
 import shapes.Point;
+import UI.ButtonMenu;
 import UI.MenuButton;
 import UI.MouseUserDevice;
-import UI.StaticListMenu;
 import file.LuaScriptFiler;
 import generic.DataModificationListener;
 import generic.VoidFunctionPointer;
 
-public class AWTFileMenu extends AWTDropdownListMenu {
+public class AWTFileMenu implements ButtonMenu, AWTUILayer {
 
 	private LuaScriptFiler filer;
 	
 	public static String SAVE_STRING = "SAVE";
 	public static String LOAD_STRING = "LOAD";
 	
-	private AWTFileChooser fileChooser;
+	private AWTDropdownListMenu dropdownListMenu;
+	private AWTFileChooser 		fileChooser;
 	private boolean	isSaving;
 	private boolean isLoading;
 	
@@ -41,8 +43,12 @@ public class AWTFileMenu extends AWTDropdownListMenu {
 	};
 	
 	public AWTFileMenu(LuaScriptFiler FILER) {
-		super();
 		filer = FILER;
+		setupFileChooser();
+		setupDropdownListMenu();
+	}
+	
+	private void setupFileChooser() {
 		fileChooser = new AWTFileChooser();
 		
 		DataModificationListener fileSelected = new DataModificationListener(){
@@ -71,12 +77,10 @@ public class AWTFileMenu extends AWTDropdownListMenu {
 		
 		isSaving = false;
 		isLoading = false;
-		
-		setup();
 	}
 	
-	private void setup() {
-
+	private void setupDropdownListMenu() {
+		
 		AWTMenuButton fileButton = new AWTMenuButton();
 		fileButton.textLabel.setText("FILE");
 		fileButton.textLabel.center();
@@ -95,25 +99,75 @@ public class AWTFileMenu extends AWTDropdownListMenu {
 		openButton.setButtonPressedFunction(LOAD);
 		
 		MenuButton[] fileMenuOptions = new MenuButton[] { saveButton, openButton };
-		StaticListMenu list = new StaticListMenu();
+		AWTStaticListMenu list = new AWTStaticListMenu();
 		list.setButtons(fileMenuOptions);
 		list.setPosition(new Point(2,2 + fileButton.getHeight()));
 		list.setButtonOffset(2);
 		list.setButtonDimensions((int)fileButton.getWidth() - 4, (int)fileButton.getHeight() - 4);
 		
-		setRoot(fileButton);
-		setMenu(list);
+		dropdownListMenu = new AWTDropdownListMenu();
+		dropdownListMenu.setRoot(fileButton);
+		dropdownListMenu.setMenu(list);
 	}
 	
 	@Override
 	public void update(MouseUserDevice mouse) {
-		super.update(mouse);
+		dropdownListMenu.update(mouse);
 		fileChooser.update(mouse);
 	}
 	
 	@Override
 	public void render(Graphics2D g) {
-		super.render(g);
-		menuDrawer.drawFileChooser(fileChooser);
+		((AWTDropdownListMenu)dropdownListMenu).render(g);
+		((AWTFileChooser)fileChooser).render(g);
+	}	
+
+	@Override
+	public void refreshButton(int index) {
+		dropdownListMenu.refreshButton(index);
+	}
+	
+	public int getX() 		{ return dropdownListMenu.getX(); }
+	public int getY() 		{ return dropdownListMenu.getY(); }
+	public int getWidth()  	{ return dropdownListMenu.getWidth(); }
+	public int getHeight() 	{ return dropdownListMenu.getHeight();}
+	public void setPosition(Point POSITION) {
+		dropdownListMenu.setPosition(POSITION);
+	}
+	public void setButtonOffset(int BUTTON_OFFSET) { 
+		dropdownListMenu.setButtonOffset(BUTTON_OFFSET);
+	}
+	public void setButtonSize(int BUTTON_SIZE)     {
+		dropdownListMenu.setButtonSize(BUTTON_SIZE);
+	}
+	public void setButtonDimensions(int WIDTH, int HEIGHT) {
+		dropdownListMenu.setButtonDimensions(WIDTH, HEIGHT);
+	}
+	public void setButtons(MenuButton ... BUTTONS) {
+		dropdownListMenu.setButtons(BUTTONS);
+	}
+	public void setButtons(ArrayList<MenuButton> BUTTONS) {
+		dropdownListMenu.setButtons(BUTTONS);
+	}
+	public void addButton(MenuButton BUTTON) {
+		dropdownListMenu.addButton(BUTTON);
+	}
+	public void removeButton(MenuButton BUTTON) {
+		dropdownListMenu.removeButton(BUTTON);
+	}
+	public void clearButtons() {
+		dropdownListMenu.clearButtons();
+	}
+	public void refreshButtons() {
+		dropdownListMenu.refreshButtons();
+	}
+	public int numberOfButtons() { 
+		return dropdownListMenu.numberOfButtons(); 
+	}
+	public MenuButton getButton(int index) { 
+		return dropdownListMenu.getButton(index); 
+	}
+	public boolean contains(MouseUserDevice mouse) {
+		return dropdownListMenu.contains(mouse);
 	}
 }

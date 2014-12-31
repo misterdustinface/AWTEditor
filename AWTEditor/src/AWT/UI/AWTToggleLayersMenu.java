@@ -1,10 +1,9 @@
 package AWT.UI;
 
-import shapes.Point;
 import generic.VoidFunctionPointer;
-import UI.UILayerManager;
+import shapes.Point;
 import UI.MenuButton;
-import UI.StaticListMenu;
+import UI.UILayerManager;
 
 public class AWTToggleLayersMenu extends AWTDropdownListMenu {
 
@@ -38,7 +37,7 @@ public class AWTToggleLayersMenu extends AWTDropdownListMenu {
 		optionsButton.makeSuggestedBoxRelativeToPoint(140, 0, 2, 2);
 		
 		MenuButton[] menuButtons = new MenuButton[] { };
-		StaticListMenu list = new StaticListMenu();
+		AWTStaticListMenu list = new AWTStaticListMenu();
 		list.setButtons(menuButtons);
 		list.setPosition(new Point(142,2 + optionsButton.getHeight()));
 		list.setButtonOffset(2);

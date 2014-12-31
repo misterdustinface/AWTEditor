@@ -1,9 +1,8 @@
 package AWT.UI;
 
-import shapes.Point;
 import generic.VoidFunctionPointer;
+import shapes.Point;
 import UI.MenuButton;
-import UI.StaticListMenu;
 import UI.Viewport;
 import UI.Zoomable;
 
@@ -38,7 +37,7 @@ public class AWTViewOptionsMenu extends AWTDropdownListMenu {
 		});
 		
 		MenuButton[] menuButtons = new MenuButton[] {resetZoom, gotoOrigin};
-		StaticListMenu list = new StaticListMenu();
+		AWTStaticListMenu list = new AWTStaticListMenu();
 		list.setButtons(menuButtons);
 		list.setPosition(new Point(282,2 + optionsButton.getHeight()));
 		list.setButtonOffset(2);
