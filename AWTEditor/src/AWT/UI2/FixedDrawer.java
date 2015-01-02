@@ -1,29 +1,30 @@
 package AWT.UI2;
 
+import generic.ProgramMain;
+import generic.VoidFunctionPointer;
+
 public class FixedDrawer implements Runnable {
-	private long MILLISECONDS_WAIT_TIME;
 	private AWTUIDrawer uiDrawer;
+	private ProgramMain thread;
 	
 	public FixedDrawer(AWTUIDrawer UI_DRAWER) {
 		uiDrawer = UI_DRAWER;
+		thread = new ProgramMain();
+		thread.addFunction(new VoidFunctionPointer() {
+			@Override
+			public void call() {
+				uiDrawer.draw();
+			}
+		});
 		setDrawsPerSecond(60);
 	}
 	
 	public void setDrawsPerSecond(int DPS) {
-		MILLISECONDS_WAIT_TIME = 1000/DPS;
+		thread.setUpdatesPerSecond(DPS);
 	}
 	
 	@Override
 	public void run() {
-		for(;;) {
-			
-			uiDrawer.draw();
-			
-			try {
-				Thread.sleep(MILLISECONDS_WAIT_TIME);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
+		thread.run();
 	}
 }

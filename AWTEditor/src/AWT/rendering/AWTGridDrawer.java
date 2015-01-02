@@ -59,9 +59,17 @@ public class AWTGridDrawer implements AWTUILayer {
 		mouseY = (int)mouse.getCursorY();
 	}
 	
-	private void setCenter(int X, int Y) { xPos = X; yPos = Y; }
-	private void setDimensions(float WIDTH, float HEIGHT) { width = WIDTH; height = HEIGHT; }
-	private void setZoom(float ZOOM) { zoom = ZOOM; }
+	private void setCenter(int X, int Y) { 
+		xPos = X; 
+		yPos = Y; 
+	}
+	private void setDimensions(float WIDTH, float HEIGHT) { 
+		width = WIDTH; 
+		height = HEIGHT; 
+	}
+	private void setZoom(float ZOOM) { 
+		zoom = ZOOM; 
+	}
 	
 	private void calculateDrawingBounds(){
 		drawingBounds.x 	 = -(int)(width/zoom)-xPos;
@@ -83,20 +91,19 @@ public class AWTGridDrawer implements AWTUILayer {
 	}
 	
 	private void makeCrissCrossLines(Graphics g, int SPACING) {
-		for(int i = 0; i < width;  i+= SPACING)
-			g.drawLine(i, (int)drawingBounds.y, i , (int)drawingBounds.height);
-		for(int j = 0; j < height; j+= SPACING)
-			g.drawLine((int)drawingBounds.x, j, (int)drawingBounds.width , j);
-		for(int i = 0; i > -width; i-= SPACING)
-			g.drawLine(i, (int)drawingBounds.y, i , (int)drawingBounds.height);
-		for(int j = 0; j > -height;j-= SPACING)
-			g.drawLine((int)drawingBounds.x, j, (int)drawingBounds.width , j);
+		int xStart = (int)drawingBounds.x - (int)drawingBounds.x % SPACING;
+		int yStart = (int)drawingBounds.y - (int)drawingBounds.y % SPACING;
+		
+		for(int i = xStart; i < xStart + (int)drawingBounds.width; i+= SPACING)
+			g.drawLine(i, (int)drawingBounds.y, i , (int)drawingBounds.y + (int)drawingBounds.height);
+		for(int j = yStart; j < yStart + (int)drawingBounds.height; j+= SPACING)
+			g.drawLine((int)drawingBounds.x, j, (int)drawingBounds.x + (int)drawingBounds.width , j);
 	}
 	
 	private void drawOriginLines(Graphics g){
 		g.setColor(ORIGIN_COLOR);
-		g.drawLine(0,(int)drawingBounds.y,0,(int)drawingBounds.height);
-		g.drawLine((int)drawingBounds.x, 0, (int)drawingBounds.width, 0);
+		g.drawLine(0,(int)drawingBounds.y, 0, (int)drawingBounds.y + (int)drawingBounds.height);
+		g.drawLine((int)drawingBounds.x, 0, (int)drawingBounds.x + (int)drawingBounds.width, 0);
 	}
 	
 	private void highlightMouseoverGridSquare(Graphics g) {
