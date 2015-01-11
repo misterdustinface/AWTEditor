@@ -2,7 +2,7 @@ package AWT.UI;
 
 import java.awt.Graphics2D;
 
-import shapes.Grid;
+import UI.Grid;
 import UI.StaticGridMenu;
 import AWT.rendering.AWTMenuDrawer;
 

@@ -16,8 +16,8 @@ import UI.ButtonMenu;
 import UI.MenuButton;
 import UI.MouseUserDevice;
 import file.LuaScriptFiler;
-import generic.DataModificationListener;
 import generic.VoidFunctionPointer;
+import generic.ListenerPattern.Descriptive.DataModificationListener;
 
 public class AWTFileMenu implements ButtonMenu, AWTUILayer {
 

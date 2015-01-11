@@ -1,4 +1,4 @@
-package AWT.rendering;
+package AWT.UI;
 
 
 import java.awt.Color;
@@ -6,39 +6,55 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import shapes.Rectangle;
-import AWT.UI.AWTUILayer;
+import UI.GridLayer;
 import UI.MouseUserDevice;
 import UI.Viewport;
 import UI.Zoomable;
 
-public class AWTGridDrawer implements AWTUILayer {
+public class AWTGridLayer implements AWTUILayer, GridLayer {
 	
 	public Color BACKGROUND_COLOR  	= new Color(250,250,250);
 	public Color MINOR_LINES_COLOR 	= new Color(225,225,225);
 	public Color MAJOR_LINES_COLOR 	= new Color(180,180,180);
 	public Color ORIGIN_COLOR 		= Color.RED;
-	public Color MOUSEOVER_HIGHLIGHT_COLOR = new Color(225,225,225);
-	public int 	MINOR_LINE_SPACING 	= 16;
-	public int 	MAJOR_LINE_SPACING 	= MINOR_LINE_SPACING * 8;
 	
-	private int 	xPos, yPos;
-	private float   width, height;
-	private float 	zoom;
+	protected int MINOR_LINE_WIDTH_SPACING, MINOR_LINE_HEIGHT_SPACING;
+	protected int MAJOR_LINE_WIDTH_SPACING, MAJOR_LINE_HEIGHT_SPACING;
+	protected int 	xPos, yPos;
+	protected float width, height;
+	protected float zoom;
 	
-	private Rectangle drawingBounds;
-	private Viewport  viewport;
-	private Zoomable  zoomer;
+	protected Rectangle drawingBounds;
+	protected Viewport  viewport;
+	protected Zoomable  zoomer;
 	
-	private int mouseX, mouseY;
-	
-	public AWTGridDrawer(Viewport VIEWPORT, Zoomable ZOOMER){
+	public AWTGridLayer(Viewport VIEWPORT, Zoomable ZOOMER){
 		xPos = yPos = 0;
 		width = height = 0;
 		zoom = 1.0f;
 		drawingBounds = new Rectangle();
 		viewport = VIEWPORT;
 		zoomer   = ZOOMER;
+		setTileSize(16);
 	}
+	
+	public void setTileWidth(int TILE_WIDTH) {
+		MINOR_LINE_WIDTH_SPACING = TILE_WIDTH;
+		MAJOR_LINE_WIDTH_SPACING = MINOR_LINE_WIDTH_SPACING * 8;
+	}
+	
+	public void setTileHeight(int TILE_HEIGHT) {
+		MINOR_LINE_HEIGHT_SPACING = TILE_HEIGHT;
+		MAJOR_LINE_HEIGHT_SPACING = MINOR_LINE_HEIGHT_SPACING * 8;
+	}
+	
+	public void setTileSize(int TILE_SIZE) {
+		setTileWidth(TILE_SIZE);
+		setTileHeight(TILE_SIZE);
+	}
+	
+	public int getTileWidth()  { return MINOR_LINE_WIDTH_SPACING; }
+	public int getTileHeight() { return MINOR_LINE_HEIGHT_SPACING; }
 	
 	@Override
 	public void render(Graphics2D g) {
@@ -46,8 +62,6 @@ public class AWTGridDrawer implements AWTUILayer {
 		drawMinorLines(g);
 		drawMajorLines(g);
 		drawOriginLines(g);
-		
-		highlightMouseoverGridSquare(g);
 	}
 	@Override
 	public void update(MouseUserDevice mouse) {
@@ -55,8 +69,6 @@ public class AWTGridDrawer implements AWTUILayer {
 		setDimensions(viewport.getWidth(), viewport.getHeight());
 		setZoom(zoomer.getZoom());
 		calculateDrawingBounds();
-		mouseX = (int)mouse.getCursorX();
-		mouseY = (int)mouse.getCursorY();
 	}
 	
 	private void setCenter(int X, int Y) { 
@@ -83,20 +95,20 @@ public class AWTGridDrawer implements AWTUILayer {
 	}
 	private void drawMinorLines(Graphics g){
 		g.setColor(MINOR_LINES_COLOR);
-		makeCrissCrossLines(g, MINOR_LINE_SPACING);
+		makeCrissCrossLines(g, MINOR_LINE_WIDTH_SPACING, MINOR_LINE_HEIGHT_SPACING);
 	}
 	private void drawMajorLines(Graphics g){
 		g.setColor(MAJOR_LINES_COLOR);
-		makeCrissCrossLines(g, MAJOR_LINE_SPACING);
+		makeCrissCrossLines(g, MAJOR_LINE_WIDTH_SPACING, MAJOR_LINE_HEIGHT_SPACING);
 	}
 	
-	private void makeCrissCrossLines(Graphics g, int SPACING) {
-		int xStart = (int)drawingBounds.x - (int)drawingBounds.x % SPACING;
-		int yStart = (int)drawingBounds.y - (int)drawingBounds.y % SPACING;
+	private void makeCrissCrossLines(Graphics g, int WIDTH_SPACING, int HEIGHT_SPACING) {
+		int xStart = (int)drawingBounds.x - (int)drawingBounds.x % WIDTH_SPACING;
+		int yStart = (int)drawingBounds.y - (int)drawingBounds.y % HEIGHT_SPACING;
 		
-		for(int i = xStart; i < xStart + (int)drawingBounds.width; i+= SPACING)
+		for(int i = xStart; i < xStart + (int)drawingBounds.width; i+= WIDTH_SPACING)
 			g.drawLine(i, (int)drawingBounds.y, i , (int)drawingBounds.y + (int)drawingBounds.height);
-		for(int j = yStart; j < yStart + (int)drawingBounds.height; j+= SPACING)
+		for(int j = yStart; j < yStart + (int)drawingBounds.height; j+= HEIGHT_SPACING)
 			g.drawLine((int)drawingBounds.x, j, (int)drawingBounds.x + (int)drawingBounds.width , j);
 	}
 	
@@ -104,15 +116,6 @@ public class AWTGridDrawer implements AWTUILayer {
 		g.setColor(ORIGIN_COLOR);
 		g.drawLine(0,(int)drawingBounds.y, 0, (int)drawingBounds.y + (int)drawingBounds.height);
 		g.drawLine((int)drawingBounds.x, 0, (int)drawingBounds.x + (int)drawingBounds.width, 0);
-	}
-	
-	private void highlightMouseoverGridSquare(Graphics g) {
-		g.setColor(MOUSEOVER_HIGHLIGHT_COLOR);
-		int x = mouseX - (mouseX % MINOR_LINE_SPACING);
-		int y = mouseY - (mouseY % MINOR_LINE_SPACING);
-		if(mouseX < 0) { x -= MINOR_LINE_SPACING; }
-		if(mouseY < 0) { y -= MINOR_LINE_SPACING; }
-		g.fillRect(x, y, MINOR_LINE_SPACING, MINOR_LINE_SPACING);
 	}
 	
 }
