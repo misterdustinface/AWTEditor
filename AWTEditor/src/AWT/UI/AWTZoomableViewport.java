@@ -22,13 +22,25 @@ public abstract class AWTZoomableViewport extends JComponent implements Viewport
 	private LinkedList<MouseListener>       viewportMouseListeners;
 	private LinkedList<MouseMotionListener> viewportMotionListeners;
 	
-	public float getXPosition() { return position.x; }
-	public float getYPosition() { return position.y; }
-	public float getZoom() 		{ return zoomAmount; }
+	public float getXPosition() { 
+		return position.x; 
+	}
+	public float getYPosition() { 
+		return position.y; 
+	}
+	public float getZoom() { 
+		return zoomAmount; 
+	}
 	
-	public void setZoom(float ZOOM) 	  { zoomAmount = ZOOM; }
-	public void increaseZoom(float delta) { zoomAmount += delta; }
-	public void decreaseZoom(float delta) { zoomAmount -= delta; }
+	public void setZoom(float ZOOM) { 
+		zoomAmount = ZOOM; 
+	}
+	public void increaseZoom(float delta) { 
+		zoomAmount += delta; 
+	}
+	public void decreaseZoom(float delta) { 
+		zoomAmount -= delta; 
+	}
 	
 	@Override
 	public void setWidth(int width) {
@@ -71,14 +83,14 @@ public abstract class AWTZoomableViewport extends JComponent implements Viewport
 			@Override
 			public void mouseDragged(MouseEvent event) {
 				event = getWorldMouseEvent(event);
-				for(MouseMotionListener listener : viewportMotionListeners) {
+				for (MouseMotionListener listener : viewportMotionListeners) {
 					listener.mouseDragged(event);
 				}
 			}
 			@Override
 			public void mouseMoved(MouseEvent event) {
 				event = getWorldMouseEvent(event);
-				for(MouseMotionListener listener : viewportMotionListeners) {
+				for (MouseMotionListener listener : viewportMotionListeners) {
 					listener.mouseMoved(event);
 				}
 			}
@@ -88,35 +100,35 @@ public abstract class AWTZoomableViewport extends JComponent implements Viewport
 			@Override
 			public void mouseClicked(MouseEvent event) {
 				event = getWorldMouseEvent(event);
-				for(MouseListener listener : viewportMouseListeners) {
+				for (MouseListener listener : viewportMouseListeners) {
 					listener.mouseClicked(event);
 				}
 			}
 			@Override
 			public void mouseEntered(MouseEvent event) {
 				event = getWorldMouseEvent(event);
-				for(MouseListener listener : viewportMouseListeners) {
+				for (MouseListener listener : viewportMouseListeners) {
 					listener.mouseEntered(event);
 				}
 			}
 			@Override
 			public void mouseExited(MouseEvent event) {
 				event = getWorldMouseEvent(event);
-				for(MouseListener listener : viewportMouseListeners) {
+				for (MouseListener listener : viewportMouseListeners) {
 					listener.mouseExited(event);
 				}
 			}
 			@Override
 			public void mousePressed(MouseEvent event) {
 				event = getWorldMouseEvent(event);
-				for(MouseListener listener : viewportMouseListeners) {
+				for (MouseListener listener : viewportMouseListeners) {
 					listener.mousePressed(event);
 				}
 			}
 			@Override
 			public void mouseReleased(MouseEvent event) {
 				event = getWorldMouseEvent(event);
-				for(MouseListener listener : viewportMouseListeners) {
+				for (MouseListener listener : viewportMouseListeners) {
 					listener.mouseReleased(event);
 				}
 			}

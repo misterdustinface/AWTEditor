@@ -54,12 +54,12 @@ final public class AWTShapeDrawer extends AWTRenderer implements ShapeDrawer {
 	
 	public void drawPolygon(Polygon p){
 		
-		if(p.getNumberOfPoints() > 1) {
+		if (p.getNumberOfPoints() > 1) {
 			
 			graphics.drawLine((int)p.xpoints[0], (int)p.ypoints[0], 
 							  (int)p.xpoints[p.getNumberOfPoints() - 1], (int)p.ypoints[p.getNumberOfPoints() - 1]);
 			
-			for(int i = 0; i < p.getNumberOfPoints() - 1; ++i) {
+			for (int i = 0; i < p.getNumberOfPoints() - 1; ++i) {
 				graphics.drawLine(	(int)p.xpoints[i],   (int)p.ypoints[i], 
 									(int)p.xpoints[i+1], (int)p.ypoints[i+1]);
 			}
@@ -69,7 +69,7 @@ final public class AWTShapeDrawer extends AWTRenderer implements ShapeDrawer {
 	
 	public void drawFilledPolygon(Polygon p){
 		
-		if(p.getNumberOfPoints() > 2) {
+		if (p.getNumberOfPoints() > 2) {
 			
 			triangleFiller.fill((int)p.xpoints[0],   (int)p.ypoints[0], 
 								(int)p.xpoints[p.getNumberOfPoints() - 1], (int)p.ypoints[p.getNumberOfPoints() - 1],
@@ -79,7 +79,7 @@ final public class AWTShapeDrawer extends AWTRenderer implements ShapeDrawer {
 								(int)p.xpoints[1],   (int)p.ypoints[1], 
 								(int)p.xpoints[p.getNumberOfPoints() - 1], (int)p.ypoints[p.getNumberOfPoints() - 1]);
 			
-			for(int i = 0; i < p.getNumberOfPoints() - 2; ++i) {
+			for (int i = 0; i < p.getNumberOfPoints() - 2; ++i) {
 				triangleFiller.fill((int)p.xpoints[i],   (int)p.ypoints[i], 
 									(int)p.xpoints[i+1], (int)p.ypoints[i+1],
 									(int)p.xpoints[i+2], (int)p.ypoints[i+2]);

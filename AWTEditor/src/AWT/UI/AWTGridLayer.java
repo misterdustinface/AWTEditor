@@ -53,8 +53,12 @@ public class AWTGridLayer implements AWTUILayer, GridLayer {
 		setTileHeight(TILE_SIZE);
 	}
 	
-	public int getTileWidth()  { return MINOR_LINE_WIDTH_SPACING; }
-	public int getTileHeight() { return MINOR_LINE_HEIGHT_SPACING; }
+	public int getTileWidth() { 
+		return MINOR_LINE_WIDTH_SPACING; 
+	}
+	public int getTileHeight() { 
+		return MINOR_LINE_HEIGHT_SPACING; 
+	}
 	
 	@Override
 	public void render(Graphics2D g) {
@@ -106,9 +110,9 @@ public class AWTGridLayer implements AWTUILayer, GridLayer {
 		int xStart = (int)drawingBounds.x - (int)drawingBounds.x % WIDTH_SPACING;
 		int yStart = (int)drawingBounds.y - (int)drawingBounds.y % HEIGHT_SPACING;
 		
-		for(int i = xStart; i < xStart + (int)drawingBounds.width; i+= WIDTH_SPACING)
+		for (int i = xStart; i < xStart + (int)drawingBounds.width; i+= WIDTH_SPACING)
 			g.drawLine(i, (int)drawingBounds.y, i , (int)drawingBounds.y + (int)drawingBounds.height);
-		for(int j = yStart; j < yStart + (int)drawingBounds.height; j+= HEIGHT_SPACING)
+		for (int j = yStart; j < yStart + (int)drawingBounds.height; j+= HEIGHT_SPACING)
 			g.drawLine((int)drawingBounds.x, j, (int)drawingBounds.x + (int)drawingBounds.width , j);
 	}
 	

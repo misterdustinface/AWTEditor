@@ -19,7 +19,7 @@ public class AWTDropdownMenuBar extends DropdownMenuBar implements AWTUILayer {
 	public void render(Graphics2D g) {
 		menuDrawer.setGraphics(g);
 		menuDrawer.drawButton(dropdownButton);
-		if(isDropped()) {
+		if (isDropped()) {
 			((AWTMenuBar)menuBar).render(g);
 		}
 	}

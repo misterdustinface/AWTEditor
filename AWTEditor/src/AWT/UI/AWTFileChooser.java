@@ -16,7 +16,7 @@ public class AWTFileChooser extends FileChooser implements AWTUILayer {
 	
 	@Override
 	public void render(Graphics2D g) {
-		if(shouldDisplayAndUpdate()) {
+		if (shouldDisplayAndUpdate()) {
 			menuDrawer.setGraphics(g);
 			menuDrawer.drawFileChooser(this);
 		}

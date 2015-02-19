@@ -33,7 +33,7 @@ public class AWTDiscreteGridLayer extends AWTGridLayer implements DiscreteGridLa
 	public void update(MouseUserDevice mouse) {
 		setMousePosition((int)mouse.getCursorX(), (int)mouse.getCursorY());
 		
-		if(shouldTileBeSelected(mouse)) {
+		if (shouldTileBeSelected(mouse)) {
 			selectTile();
 		}
 		

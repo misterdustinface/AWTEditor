@@ -5,7 +5,9 @@ import java.awt.event.MouseListener;
 
 public class MousePressed implements SurfaceMouseListenerFunction {
 	private static final MousePressed instance = new MousePressed();
-	private MousePressed() {}
+	private MousePressed() {
+		
+	}
 	
 	public static SurfaceMouseListenerFunction getInstance() {
 		return instance;

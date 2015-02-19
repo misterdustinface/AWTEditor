@@ -16,7 +16,7 @@ public class AWTDropdownListMenu extends DropdownListMenu implements AWTUILayer 
 	@Override
 	public void render(Graphics2D g) {
 		menuDrawer.setGraphics(g);
-		if(isListMenuOpen()) { 
+		if (isListMenuOpen()) { 
 			((AWTStaticListMenu)menu).render(g);
 			//menuDrawer.drawUIMenu(menu); 
 		}

@@ -20,7 +20,7 @@ public abstract class AWTDynamicGridMenu extends DynamicGridMenu implements AWTU
 		menuDrawer.setGraphics(g);
 		menuDrawer.drawUIMenu(this);
 
-		if(canFitNewEmptyEntry()) {
+		if (canFitNewEmptyEntry()) {
 			menuDrawer.drawPlusOnButton(getEmptyEntry());
 		}
 	}

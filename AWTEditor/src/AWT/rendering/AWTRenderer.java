@@ -7,7 +7,9 @@ public abstract class AWTRenderer {
 	
 	protected Graphics2D graphics;
 
-	public AWTRenderer() {}
+	public AWTRenderer() {
+		
+	}
 	
 	final public void setGraphics(Graphics2D graphics2D){
 		graphics = graphics2D;

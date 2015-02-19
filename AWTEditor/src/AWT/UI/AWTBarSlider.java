@@ -40,6 +40,10 @@ public abstract class AWTBarSlider extends BarSlider {
 		highlightColor = highlight;
 	}
 	
-	public Color getBaseColor() { return baseColor; }
-	public Color getFillColor() { return isPressed() ? pressedColor : isHighlighted() ? highlightColor : releasedColor; }
+	public Color getBaseColor() { 
+		return baseColor; 
+	}
+	public Color getFillColor() { 
+		return isPressed() ? pressedColor : isHighlighted() ? highlightColor : releasedColor; 
+	}
 }

@@ -5,7 +5,9 @@ import java.awt.event.MouseMotionListener;
 
 public class MouseMoved implements SurfaceMouseMotionListenerFunction {
 	private static final MouseMoved instance = new MouseMoved();
-	private MouseMoved() {}
+	private MouseMoved() {
+		
+	}
 	
 	public static SurfaceMouseMotionListenerFunction getInstance() {
 		return instance;

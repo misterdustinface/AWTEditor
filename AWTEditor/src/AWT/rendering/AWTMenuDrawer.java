@@ -34,7 +34,7 @@ final public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer {
 	}
 	
 	public void drawButton( MenuButton b) {
-		if(((AWTMenuButton)b).isFilled()) {
+		if (((AWTMenuButton)b).isFilled()) {
 			drawFilledButton((AWTMenuButton)b);
 		} else {
 			drawButton((AWTMenuButton)b);
@@ -101,14 +101,14 @@ final public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer {
 	
 	public void drawUIMenu( UIMenu menu ) {
 		drawMenuBox(menu.getX(), menu.getY(), menu.getWidth(), menu.getHeight());
-		for(int i = 0; i < menu.numberOfButtons(); ++i) {
+		for (int i = 0; i < menu.numberOfButtons(); ++i) {
 			drawButton(menu.getButton(i));
 		}
 	}
 
 	@Override
 	public void drawFileChooser(FileChooser fileChooser) {
-		if(fileChooser.shouldDisplayAndUpdate()){
+		if (fileChooser.shouldDisplayAndUpdate()){
 			drawUIMenu(fileChooser.getFileListing());
 			drawButton(fileChooser.getUpButton());
 			drawButton(fileChooser.getExitButton());

@@ -45,7 +45,13 @@ public class AWTMenuButton extends MenuButton {
 		return releasedColor;
 	}
 	
-	public boolean 	isFilled() 	{ return isFilled; }
-	public void 	fill() 		{ isFilled = true; }
-	public void 	toggleFill(){ isFilled = !isFilled; }
+	public boolean isFilled() { 
+		return isFilled; 
+	}
+	public void fill() { 
+		isFilled = true; 
+	}
+	public void toggleFill() { 
+		isFilled = !isFilled; 
+	}
 }

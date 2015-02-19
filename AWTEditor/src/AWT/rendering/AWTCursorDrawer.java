@@ -69,7 +69,7 @@ final public class AWTCursorDrawer extends AWTRenderer implements CursorDrawer {
 
 		int last = graphicData.POINTER_CURSOR_X.length-1;
 		
-		for(int i = 0; i < last; ++i) {
+		for (int i = 0; i < last; ++i) {
 			graphics.drawLine(X + graphicData.POINTER_CURSOR_X[i]  , Y + graphicData.POINTER_CURSOR_Y[i]  , 
 					  		  X + graphicData.POINTER_CURSOR_X[i+1], Y + graphicData.POINTER_CURSOR_Y[i+1]);
 		}

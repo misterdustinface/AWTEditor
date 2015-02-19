@@ -59,7 +59,7 @@ public class AWTFileMenu implements ButtonMenu, AWTUILayer {
 		DataModificationListener fileSelected = new DataModificationListener(){
 			@Override
 			protected void whenMyDataIsModifiedExternally() {
-				if(isSaving){
+				if (isSaving){
 					try {
 						filer.save(new FileOutputStream(fileChooser.getChosenFile()));
 					} catch (FileNotFoundException fnf) {
@@ -67,7 +67,7 @@ public class AWTFileMenu implements ButtonMenu, AWTUILayer {
 					}
 					isSaving = false;
 				}
-				if(isLoading){
+				if (isLoading){
 					try {
 						filer.load(new FileInputStream(fileChooser.getChosenFile()));
 					} catch (FileNotFoundException fnf) {
@@ -132,10 +132,18 @@ public class AWTFileMenu implements ButtonMenu, AWTUILayer {
 		dropdownListMenu.refreshButton(index);
 	}
 	
-	public int getX() 		{ return dropdownListMenu.getX(); }
-	public int getY() 		{ return dropdownListMenu.getY(); }
-	public int getWidth()  	{ return dropdownListMenu.getWidth(); }
-	public int getHeight() 	{ return dropdownListMenu.getHeight();}
+	public int getX() { 
+		return dropdownListMenu.getX(); 
+	}
+	public int getY() { 
+		return dropdownListMenu.getY(); 
+	}
+	public int getWidth() { 
+		return dropdownListMenu.getWidth(); 
+	}
+	public int getHeight() { 
+		return dropdownListMenu.getHeight();
+	}
 	public void setPosition(Point POSITION) {
 		dropdownListMenu.setPosition(POSITION);
 	}

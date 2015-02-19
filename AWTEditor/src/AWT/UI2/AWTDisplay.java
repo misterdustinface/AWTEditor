@@ -71,7 +71,7 @@ public class AWTDisplay extends JComponent {
 	}
 	
 	private void renderViewports(Graphics2D g) {
-		for(AWTViewport view : views) {
+		for (AWTViewport view : views) {
 			view.render(g);
 		}
 	}
@@ -119,11 +119,11 @@ public class AWTDisplay extends JComponent {
 	}
 	
 	private void doMouseMotionListenerRoutine(MouseEvent event, SurfaceMouseMotionListenerFunction listenerFunction) {
-		for(AWTViewport view : views) {
+		for (AWTViewport view : views) {
 			event = getSurfaceEventRelativeToView(event, view);
-			for(MouseMotionListener listener : surfaceMotionListeners) {
+			for (MouseMotionListener listener : surfaceMotionListeners) {
 				listenerFunction.call(listener, event);
-				if(event.isConsumed()) {
+				if (event.isConsumed()) {
 					return;
 				}
 			}
@@ -131,11 +131,11 @@ public class AWTDisplay extends JComponent {
 	}
 	
 	private void doMouseListenerRoutine(MouseEvent event, SurfaceMouseListenerFunction listenerFunction) {
-		for(AWTViewport view : views) {
+		for (AWTViewport view : views) {
 			event = getSurfaceEventRelativeToView(event, view);
-			for(MouseListener listener : surfaceMouseListeners) {
+			for (MouseListener listener : surfaceMouseListeners) {
 				listenerFunction.call(listener, event);
-				if(event.isConsumed()) {
+				if (event.isConsumed()) {
 					return;
 				}
 			}

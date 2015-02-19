@@ -20,7 +20,7 @@ public class AWTMenuBar extends MenuBar implements AWTUILayer {
 		
 		menuDrawer.drawMenuBox((int)boundingBox.x, (int)boundingBox.y, (int)boundingBox.width, (int)boundingBox.height);
 		
-		for(ButtonMenu menu : menus) {
+		for (ButtonMenu menu : menus) {
 			((AWTUILayer)menu).render(g);			
 		}
 	}
