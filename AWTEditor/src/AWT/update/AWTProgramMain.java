@@ -3,15 +3,15 @@ package AWT.update;
 import UI.UILayerManager;
 import UI.UIFunction;
 import UI.UILayer;
-import generic.ProgramMain;
+import generic.TickingLoop;
 import generic.VoidFunctionPointer;
 import AWT.UI.AWTUILayer;
 import AWT.UI.Mouse.AWTMouseUserDevice;
 
 
-public class AWTProgramMain extends ProgramMain {
+public class AWTProgramMain extends TickingLoop {
 	
-	public static ProgramMain create(UILayerManager LAYER_MANAGER, AWTMouseUserDevice MOUSE_USER_DEVICE) {
+	public static TickingLoop create(UILayerManager LAYER_MANAGER, AWTMouseUserDevice MOUSE_USER_DEVICE) {
 		return new AWTProgramMain(LAYER_MANAGER, MOUSE_USER_DEVICE);
 	}
 	
