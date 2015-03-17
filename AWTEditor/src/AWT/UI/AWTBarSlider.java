@@ -5,7 +5,7 @@ import java.awt.Color;
 import AWT.graphicdata.EditorAWTGraphicData;
 import UI.BarSlider;
 
-public abstract class AWTBarSlider extends BarSlider {
+public class AWTBarSlider extends BarSlider {
 
 	private Color 	  pressedColor;
 	private Color 	  releasedColor;
@@ -23,7 +23,9 @@ public abstract class AWTBarSlider extends BarSlider {
 		baseColor     = graphicData.getColorOf("base");
 	}
 	
-	public void setBaseColor(Color c) { baseColor = c; }
+	public void setBaseColor(Color c) { 
+		baseColor = c; 
+	}
 	
 	public void setColor(Color c) {
 		pressedColor = releasedColor = highlightColor = c;
@@ -43,7 +45,9 @@ public abstract class AWTBarSlider extends BarSlider {
 	public Color getBaseColor() { 
 		return baseColor; 
 	}
+	
 	public Color getFillColor() { 
 		return isPressed() ? pressedColor : isHighlighted() ? highlightColor : releasedColor; 
 	}
+	
 }

@@ -41,6 +41,7 @@ public class AWTMenuButton extends MenuButton {
 	public Color getColor() {
 		return isPressed() ? pressedColor : isHighlighted() ? highlightColor : releasedColor;
 	}
+	
 	public Color getNormalColor() {
 		return releasedColor;
 	}
@@ -48,9 +49,11 @@ public class AWTMenuButton extends MenuButton {
 	public boolean isFilled() { 
 		return isFilled; 
 	}
+	
 	public void fill() { 
 		isFilled = true; 
 	}
+	
 	public void toggleFill() { 
 		isFilled = !isFilled; 
 	}
