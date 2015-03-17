@@ -14,7 +14,9 @@ public abstract class AWTRenderer {
 	final public void setGraphics(Graphics2D graphics2D){
 		graphics = graphics2D;
 	}
+	
 	final public void setColor(Color color){
 		graphics.setColor(color);
 	}
+	
 }

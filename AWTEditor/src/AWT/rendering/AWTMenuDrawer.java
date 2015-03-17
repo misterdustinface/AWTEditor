@@ -1,5 +1,6 @@
 package AWT.rendering;
 
+import generic.tags.Singleton;
 import rendering.MenuDrawer;
 import shapes.Point;
 import AWT.UI.AWTBarSlider;
@@ -11,7 +12,7 @@ import UI.MenuButton;
 import UI.TextLabel;
 import UI.UIMenu;
 
-final public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer {
+final public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer, Singleton {
 
 	private static AWTMenuDrawer menuDrawer = new AWTMenuDrawer();
 	

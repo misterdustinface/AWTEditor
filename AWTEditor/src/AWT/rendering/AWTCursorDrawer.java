@@ -1,9 +1,10 @@
 package AWT.rendering;
 
+import generic.tags.Singleton;
 import rendering.CursorDrawer;
 import AWT.graphicdata.AWTGraphicData;
 
-final public class AWTCursorDrawer extends AWTRenderer implements CursorDrawer {
+final public class AWTCursorDrawer extends AWTRenderer implements CursorDrawer, Singleton {
 	
 	private static AWTCursorDrawer cursorDrawer = new AWTCursorDrawer();
 	private AWTGraphicData graphicData;

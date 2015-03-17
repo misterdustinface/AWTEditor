@@ -1,5 +1,6 @@
 package AWT.rendering;
 
+import generic.tags.Singleton;
 import rendering.ShapeDrawer;
 import shapes.Circle;
 import shapes.LineSegment;
@@ -8,7 +9,7 @@ import shapes.Polygon;
 import shapes.Rectangle;
 import AWT.graphicdata.AWTGraphicData;
 
-final public class AWTShapeDrawer extends AWTRenderer implements ShapeDrawer {
+final public class AWTShapeDrawer extends AWTRenderer implements ShapeDrawer, Singleton {
 	
 	private static AWTShapeDrawer shapeDrawer = new AWTShapeDrawer();
 	

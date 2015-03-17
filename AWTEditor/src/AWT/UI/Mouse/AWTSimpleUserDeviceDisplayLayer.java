@@ -8,6 +8,7 @@ import AWT.rendering.AWTCursorDrawer;
 import UI.MouseUserDevice;
 
 public class AWTSimpleUserDeviceDisplayLayer implements AWTUILayer {
+	
 	private AWTCursorDrawer 	cursorDrawer;
 	private AWTMouseUserDevice 	userDevice;
 	

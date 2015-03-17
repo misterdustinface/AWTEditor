@@ -8,8 +8,9 @@ import java.util.ArrayList;
 
 import file.GenericExtended.ColorPaletteFiler;
 import generic.ColorData;
+import generic.tags.Singleton;
 
-public class AWTGraphicData {
+public class AWTGraphicData implements Singleton {
 	
 	//private final static String GRAPHIC_DATA_FILE = "graphicdata.lua";
 	private static AWTGraphicData graphicData = new AWTGraphicData();
