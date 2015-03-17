@@ -2,7 +2,7 @@ package AWT.UI;
 
 import java.awt.Color;
 
-import AWT.graphicdata.AWTGraphicData;
+import AWT.graphicdata.EditorAWTGraphicData;
 import UI.BarSlider;
 
 public abstract class AWTBarSlider extends BarSlider {
@@ -12,11 +12,11 @@ public abstract class AWTBarSlider extends BarSlider {
 	private Color 	  highlightColor;
 	private Color     baseColor;
 	
-	private AWTGraphicData graphicData;
+	private EditorAWTGraphicData graphicData;
 	
 	public AWTBarSlider() {
 		super();	
-		graphicData = AWTGraphicData.getGraphicData();
+		graphicData = EditorAWTGraphicData.getGraphicData();
 		pressedColor  = graphicData.buttonPressedColor; 
 		releasedColor = graphicData.buttonColor;         
 		highlightColor= graphicData.buttonHighlightColor;

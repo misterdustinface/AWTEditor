@@ -7,18 +7,18 @@ import shapes.LineSegment;
 import shapes.Point;
 import shapes.Polygon;
 import shapes.Rectangle;
-import AWT.graphicdata.AWTGraphicData;
+import AWT.graphicdata.EditorAWTGraphicData;
 
 final public class AWTShapeDrawer extends AWTRenderer implements ShapeDrawer, Singleton {
 	
 	private static AWTShapeDrawer shapeDrawer = new AWTShapeDrawer();
 	
 	private AWTTriangleFiller 	triangleFiller;
-	private AWTGraphicData 		graphicData;
+	private EditorAWTGraphicData graphicData;
 	
 	private AWTShapeDrawer() {
 		triangleFiller = new AWTTriangleFiller();
-		graphicData = AWTGraphicData.getGraphicData();
+		graphicData = EditorAWTGraphicData.getGraphicData();
 	}
 	
 	public static AWTShapeDrawer getShapeDrawer() {
@@ -26,9 +26,10 @@ final public class AWTShapeDrawer extends AWTRenderer implements ShapeDrawer, Si
 	}
 	
 	public void drawPoint(Point p){
-		graphics.fillOval(	(int)((p.x-((graphicData.pointSize)>>1))), 
-							(int)((p.y-((graphicData.pointSize)>>1))), 
-							graphicData.pointSize, graphicData.pointSize);
+		int pointSize = graphicData.getThicknessOf("pointSize");
+		graphics.fillOval(	(int)((p.x-((pointSize)>>1))), 
+							(int)((p.y-((pointSize)>>1))), 
+							pointSize, pointSize);
 	}
 	
 	public void drawLineSegment(LineSegment l){

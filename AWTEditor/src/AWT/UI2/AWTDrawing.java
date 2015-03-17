@@ -3,7 +3,7 @@ package AWT.UI2;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-import AWT.graphicdata.AWTGraphicData;
+import AWT.graphicdata.EditorAWTGraphicData;
 import AWT.rendering.AWTRenderable;
 
 public class AWTDrawing implements AWTRenderable {
@@ -29,7 +29,7 @@ public class AWTDrawing implements AWTRenderable {
 	
 	final public void clear() {
 		//getImageGraphics().clearRect(0, 0, image.getWidth(), image.getHeight());
-		getImageGraphics().setColor(AWTGraphicData.getGraphicData().BACKGROUND_COLOR);
+		getImageGraphics().setColor(EditorAWTGraphicData.getGraphicData().BACKGROUND_COLOR);
 		getImageGraphics().fillRect(0, 0, image.getWidth(), image.getHeight());
 	}
 	

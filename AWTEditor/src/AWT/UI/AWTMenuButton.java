@@ -2,7 +2,7 @@ package AWT.UI;
 
 import java.awt.Color;
 
-import AWT.graphicdata.AWTGraphicData;
+import AWT.graphicdata.EditorAWTGraphicData;
 import UI.MenuButton;
 
 public class AWTMenuButton extends MenuButton {
@@ -12,11 +12,11 @@ public class AWTMenuButton extends MenuButton {
 	protected Color highlightColor;
 	private boolean isFilled;
 	
-	private AWTGraphicData graphicData;
+	private EditorAWTGraphicData graphicData;
 	
 	public AWTMenuButton() {
 		super();
-		graphicData = AWTGraphicData.getGraphicData();
+		graphicData = EditorAWTGraphicData.getGraphicData();
 		pressedColor  = graphicData.buttonPressedColor; 
 		releasedColor = graphicData.buttonColor;         
 		highlightColor= graphicData.buttonHighlightColor;

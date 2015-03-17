@@ -23,7 +23,7 @@ import AWT.UI2.SurfaceMouseEvents.MousePressed;
 import AWT.UI2.SurfaceMouseEvents.MouseReleased;
 import AWT.UI2.SurfaceMouseEvents.SurfaceMouseListenerFunction;
 import AWT.UI2.SurfaceMouseEvents.SurfaceMouseMotionListenerFunction;
-import AWT.graphicdata.AWTGraphicData;
+import AWT.graphicdata.EditorAWTGraphicData;
 
 public class AWTDisplay extends JComponent {
 	private static final long serialVersionUID = 363380107229115199L;
@@ -78,7 +78,7 @@ public class AWTDisplay extends JComponent {
 	
 	private void setupJComponentEnvironment() {
 		setCursor(INVISIBLE_CURSOR);
-		setBackground(AWTGraphicData.getGraphicData().BACKGROUND_COLOR);
+		setBackground(EditorAWTGraphicData.getGraphicData().BACKGROUND_COLOR);
 		setDoubleBuffered(true);
 	}
 	

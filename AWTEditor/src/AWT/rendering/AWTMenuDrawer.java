@@ -5,7 +5,7 @@ import rendering.MenuDrawer;
 import shapes.Point;
 import AWT.UI.AWTBarSlider;
 import AWT.UI.AWTMenuButton;
-import AWT.graphicdata.AWTGraphicData;
+import AWT.graphicdata.EditorAWTGraphicData;
 import UI.BarSlider;
 import UI.FileChooser;
 import UI.MenuButton;
@@ -17,11 +17,11 @@ final public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer, Sing
 	private static AWTMenuDrawer menuDrawer = new AWTMenuDrawer();
 	
 	private AWTShapeDrawer shapeDrawer;
-	private AWTGraphicData graphicData;
+	private EditorAWTGraphicData graphicData;
 	
 	private AWTMenuDrawer() {
 		shapeDrawer = AWTShapeDrawer.getShapeDrawer();
-		graphicData = AWTGraphicData.getGraphicData();
+		graphicData = EditorAWTGraphicData.getGraphicData();
 	}
 	
 	public static AWTMenuDrawer getMenuDrawer() {
@@ -65,7 +65,7 @@ final public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer, Sing
 		int plusWidth  = (int) b.getWidth() >>1;
 		int plusHeight = (int) b.getHeight()>>1;
 		plusWidth  = plusWidth < plusHeight ? plusWidth : plusHeight;
-		plusHeight = graphicData.plusSignThickness;
+		plusHeight = graphicData.getThicknessOf("plusSign");
 		
 		shapeDrawer.setGraphics(graphics);
 		shapeDrawer.setColor(graphicData.PLUS_SIGN_COLOR);

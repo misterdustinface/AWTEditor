@@ -12,7 +12,7 @@ import UI.UILayerManager;
 import UI.UIFunction;
 import UI.UILayer;
 import AWT.UI.Mouse.AWTMouseUserDevice;
-import AWT.graphicdata.AWTGraphicData;
+import AWT.graphicdata.EditorAWTGraphicData;
 
 public class AWTEditorPanel extends AWTZoomableViewport {
 	
@@ -31,7 +31,7 @@ public class AWTEditorPanel extends AWTZoomableViewport {
 	
 	public AWTEditorPanel() {
 		setCursor(INVISIBLE_CURSOR);
-		setBackground(AWTGraphicData.getGraphicData().BACKGROUND_COLOR);
+		setBackground(EditorAWTGraphicData.getGraphicData().BACKGROUND_COLOR);
 		setDoubleBuffered(true);
 	}
 	
