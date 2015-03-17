@@ -29,7 +29,7 @@ public class AWTDrawing implements AWTRenderable {
 	
 	final public void clear() {
 		//getImageGraphics().clearRect(0, 0, image.getWidth(), image.getHeight());
-		getImageGraphics().setColor(EditorAWTGraphicData.getGraphicData().BACKGROUND_COLOR);
+		getImageGraphics().setColor(EditorAWTGraphicData.getGraphicData().getColorOf("BACKGROUND"));
 		getImageGraphics().fillRect(0, 0, image.getWidth(), image.getHeight());
 	}
 	

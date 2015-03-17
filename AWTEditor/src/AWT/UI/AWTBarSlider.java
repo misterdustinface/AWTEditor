@@ -17,10 +17,10 @@ public abstract class AWTBarSlider extends BarSlider {
 	public AWTBarSlider() {
 		super();	
 		graphicData = EditorAWTGraphicData.getGraphicData();
-		pressedColor  = graphicData.buttonPressedColor; 
-		releasedColor = graphicData.buttonColor;         
-		highlightColor= graphicData.buttonHighlightColor;
-		baseColor     = graphicData.baseColor;
+		pressedColor  = graphicData.getColorOf("buttonPressed"); 
+		releasedColor = graphicData.getColorOf("button");         
+		highlightColor= graphicData.getColorOf("buttonHighlight");
+		baseColor     = graphicData.getColorOf("base");
 	}
 	
 	public void setBaseColor(Color c) { baseColor = c; }

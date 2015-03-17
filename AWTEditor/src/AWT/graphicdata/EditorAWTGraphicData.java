@@ -21,20 +21,16 @@ public class EditorAWTGraphicData extends AWTGraphicData implements Singleton, N
 		loadThicknesses();
 	}
 	
-	public Color clear                 = new Color(0,0,0,0);
-	public Color lightclear            = new Color(50,50,50,50);
-	
-	public Color buttonColor           = new Color(150,150,150);
-	public Color buttonHighlightColor  = new Color(125,125,162);
-	public Color buttonPressedColor    = new Color(175,100,175);
-	public Color baseColor             = new Color(200,200,200);
-	
-	public Color MENU_BACKGROUND_COLOR = new Color(240,240,240);
-	public Color BACKGROUND_COLOR      = new Color(240,240,240);
-	public Color PLUS_SIGN_COLOR       = new Color(165,165,165);
-	
 	private void loadColors() {
-		
+		colors.put("clear", new Color(0,0,0,0));
+		colors.put("lightclear", new Color(50,50,50,50));
+		colors.put("button", new Color(150,150,150));
+		colors.put("buttonHighlight", new Color(125,125,162));
+		colors.put("buttonPressed", new Color(175,100,175));
+		colors.put("base", new Color(200,200,200));
+		colors.put("MENU_BACKGROUND", new Color(240,240,240));
+		colors.put("BACKGROUND", new Color(240,240,240));
+		colors.put("PLUS_SIGN", new Color(165,165,165));
 	}
 	
 	private void loadThicknesses() {

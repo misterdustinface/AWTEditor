@@ -17,9 +17,9 @@ public class AWTMenuButton extends MenuButton {
 	public AWTMenuButton() {
 		super();
 		graphicData = EditorAWTGraphicData.getGraphicData();
-		pressedColor  = graphicData.buttonPressedColor; 
-		releasedColor = graphicData.buttonColor;         
-		highlightColor= graphicData.buttonHighlightColor;
+		pressedColor  = graphicData.getColorOf("buttonPressed"); 
+		releasedColor = graphicData.getColorOf("button");         
+		highlightColor= graphicData.getColorOf("buttonHighlight");
 		isFilled      = false;
 	}
 	

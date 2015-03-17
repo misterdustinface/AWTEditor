@@ -68,7 +68,7 @@ final public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer, Sing
 		plusHeight = graphicData.getThicknessOf("plusSign");
 		
 		shapeDrawer.setGraphics(graphics);
-		shapeDrawer.setColor(graphicData.PLUS_SIGN_COLOR);
+		shapeDrawer.setColor(graphicData.getColorOf("PLUS_SIGN"));
 		graphics.fillRect(centerX - (plusWidth >>1), centerY - (plusHeight>>1), plusWidth,  plusHeight);
 		graphics.fillRect(centerX - (plusHeight>>1), centerY - (plusWidth >>1), plusHeight, plusWidth);
 	}
@@ -94,9 +94,9 @@ final public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer, Sing
 	}
 	
 	public void drawMenuBox( int X, int Y, int width, int height) {
-		graphics.setColor(graphicData.MENU_BACKGROUND_COLOR);
+		graphics.setColor(graphicData.getColorOf("MENU_BACKGROUND"));
 		graphics.fillRect(X, Y, width, height);
-		graphics.setColor(graphicData.buttonColor);
+		graphics.setColor(graphicData.getColorOf("button"));
 		graphics.drawRect(X, Y, width, height);
 	}
 	

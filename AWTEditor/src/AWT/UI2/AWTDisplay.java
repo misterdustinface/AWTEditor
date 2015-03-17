@@ -78,7 +78,7 @@ public class AWTDisplay extends JComponent {
 	
 	private void setupJComponentEnvironment() {
 		setCursor(INVISIBLE_CURSOR);
-		setBackground(EditorAWTGraphicData.getGraphicData().BACKGROUND_COLOR);
+		setBackground(EditorAWTGraphicData.getGraphicData().getColorOf("BACKGROUND"));
 		setDoubleBuffered(true);
 	}
 	
