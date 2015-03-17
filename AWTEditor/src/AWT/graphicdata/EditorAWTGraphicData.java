@@ -1,19 +1,12 @@
 package AWT.graphicdata;
 
-import file.GenericExtended.ColorPaletteFiler;
-import generic.ColorData;
 import generic.tags.NamedData;
 import generic.tags.Singleton;
 
 import java.awt.Color;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
 
 public class EditorAWTGraphicData extends AWTGraphicData implements Singleton, NamedData {
 	
-	//private final static String GRAPHIC_DATA_FILE = "graphicdata.lua";
 	private static EditorAWTGraphicData graphicData = new EditorAWTGraphicData();
 	
 	private EditorAWTGraphicData() {
@@ -38,21 +31,6 @@ public class EditorAWTGraphicData extends AWTGraphicData implements Singleton, N
 		thicknesses.put("cursorStretchOutAmount", 10);
 		thicknesses.put("cursorCenterGapAmount", 2);
 		thicknesses.put("plusSign", 4);
-	}
-	
-	private ArrayList<ColorData> loadColorsFromFile(File file) {
-		ColorPaletteFiler filer = new ColorPaletteFiler();
-		ArrayList<ColorData> colorpalette = new ArrayList<ColorData>();
-		filer.setPalette(colorpalette);
-		
-		try {
-			FileInputStream inStream = new FileInputStream(file);
-			filer.load(inStream);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		
-		return colorpalette;
 	}
 	
 	public static EditorAWTGraphicData getGraphicData() {

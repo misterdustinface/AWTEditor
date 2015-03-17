@@ -22,4 +22,21 @@ public abstract class AWTGraphicData implements NamedData {
 	final public int getThicknessOf(String name) {
 		return thicknesses.containsKey(name) ? thicknesses.get(name) : 0;
 	}
+	
+	//private final static String GRAPHIC_DATA_FILE = "graphicdata.lua";
+	
+//	private ArrayList<ColorData> loadColorsFromFile(File file) {
+//	ColorPaletteFiler filer = new ColorPaletteFiler();
+//	ArrayList<ColorData> colorpalette = new ArrayList<ColorData>();
+//	filer.setPalette(colorpalette);
+//	
+//	try {
+//		FileInputStream inStream = new FileInputStream(file);
+//		filer.load(inStream);
+//	} catch (FileNotFoundException e) {
+//		e.printStackTrace();
+//	}
+//	
+//	return colorpalette;
+//}
 }
