@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 final public class AWTProgramWindow extends JFrame {
 
 	private static final long serialVersionUID = -3484849588202585389L;
-	final public static Dimension MIN_SIZE 	   = new Dimension(400, 300);
+	final public static Dimension MIN_SIZE 	   = new Dimension(200, 200);
 
 	public AWTProgramWindow(String title){
 		super(title);
