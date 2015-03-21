@@ -50,6 +50,6 @@ public class AWTEditorPanel extends AWTZoomableViewport {
 		super.paintComponent(g);
 		repaint();
 		graphics2D = (Graphics2D)g;
-		layerManager.forAllUIPerformFunction(uiRender);
+		layerManager.forAllUIPerformFunctionBackToFront(uiRender);
     }
 }

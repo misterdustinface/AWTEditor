@@ -32,6 +32,6 @@ public class AWTUIDrawer {
 	public void draw() {
 		drawing.clear();
 		graphics = drawing.getImageGraphics();
-		layerManager.forAllUIPerformFunction(uiRender);
+		layerManager.forAllUIPerformFunctionBackToFront(uiRender);
 	}
 }
