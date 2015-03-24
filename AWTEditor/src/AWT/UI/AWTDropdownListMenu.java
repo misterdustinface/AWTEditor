@@ -3,7 +3,7 @@ package AWT.UI;
 import java.awt.Graphics2D;
 
 import AWT.rendering.AWTMenuDrawer;
-import UI.DropdownListMenu;
+import UI.widgets.DropdownListMenu;
 
 public class AWTDropdownListMenu extends DropdownListMenu implements AWTUILayer {
 

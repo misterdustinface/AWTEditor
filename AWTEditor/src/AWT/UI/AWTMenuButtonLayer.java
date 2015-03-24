@@ -3,7 +3,7 @@ package AWT.UI;
 import java.awt.Graphics2D;
 
 import AWT.rendering.AWTMenuDrawer;
-import UI.MouseUserDevice;
+import UI.input.MouseUserDevice;
 
 public class AWTMenuButtonLayer implements AWTUILayer {
 

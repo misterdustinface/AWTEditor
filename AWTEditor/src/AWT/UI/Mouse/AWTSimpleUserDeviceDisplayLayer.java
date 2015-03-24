@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 
 import AWT.UI.AWTUILayer;
 import AWT.rendering.AWTCursorDrawer;
-import UI.MouseUserDevice;
+import UI.input.MouseUserDevice;
 
 public class AWTSimpleUserDeviceDisplayLayer implements AWTUILayer {
 	

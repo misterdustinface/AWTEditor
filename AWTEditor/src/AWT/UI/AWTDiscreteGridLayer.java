@@ -1,6 +1,5 @@
 package AWT.UI;
 
-import generic.Discretizer;
 import generic.ListenerPattern.Listener;
 import generic.ListenerPattern.Notifier;
 
@@ -9,9 +8,10 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import UI.DiscreteGridLayer;
-import UI.MouseUserDevice;
+import UI.Discretizer;
 import UI.Viewport;
 import UI.Zoomable;
+import UI.input.MouseUserDevice;
 
 public class AWTDiscreteGridLayer extends AWTGridLayer implements DiscreteGridLayer {
 

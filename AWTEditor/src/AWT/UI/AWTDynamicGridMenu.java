@@ -1,10 +1,11 @@
 package AWT.UI;
 
+import generic.structures.Grid;
+
 import java.awt.Graphics2D;
 
 import AWT.rendering.AWTMenuDrawer;
-import UI.DynamicGridMenu;
-import UI.Grid;
+import UI.widgets.DynamicGridMenu;
 
 public abstract class AWTDynamicGridMenu extends DynamicGridMenu implements AWTUILayer  {
 

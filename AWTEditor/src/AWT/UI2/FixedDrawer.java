@@ -1,7 +1,7 @@
 package AWT.UI2;
 
 import generic.TickingLoop;
-import generic.VoidFunctionPointer;
+import generic.fp.VoidFunctionPointer;
 
 public class FixedDrawer implements Runnable {
 	private AWTUIDrawer uiDrawer;

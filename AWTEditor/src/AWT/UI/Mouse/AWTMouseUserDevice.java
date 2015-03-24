@@ -4,7 +4,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import UI.MouseUserDevice;
+import UI.input.MouseUserDevice;
 
 public abstract class AWTMouseUserDevice extends MouseUserDevice implements MouseListener, MouseMotionListener {
 	

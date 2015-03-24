@@ -1,13 +1,13 @@
 package AWT.UI.CommonMenus;
 
-import generic.VoidFunctionPointer;
+import generic.fp.VoidFunctionPointer;
 import shapes.Point;
 import AWT.UI.AWTDropdownListMenu;
 import AWT.UI.AWTMenuButton;
 import AWT.UI.AWTStaticListMenu;
 import AWT.UI.AWTUILayer;
-import UI.MenuButton;
 import UI.UILayerManager;
+import UI.widgets.MenuButton;
 
 public class AWTToggleLayersMenu extends AWTDropdownListMenu {
 

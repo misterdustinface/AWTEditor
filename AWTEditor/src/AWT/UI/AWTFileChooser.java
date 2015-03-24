@@ -3,8 +3,8 @@ package AWT.UI;
 import java.awt.Graphics2D;
 
 import AWT.rendering.AWTMenuDrawer;
-import UI.FileChooser;
-import UI.MenuButton;
+import UI.widgets.FileChooser;
+import UI.widgets.MenuButton;
 
 public class AWTFileChooser extends FileChooser implements AWTUILayer {
 	

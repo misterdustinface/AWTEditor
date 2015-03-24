@@ -3,8 +3,8 @@ package AWT.UI;
 import java.awt.Graphics2D;
 
 import AWT.rendering.AWTMenuDrawer;
-import UI.ButtonMenu;
-import UI.MenuBar;
+import UI.widgets.ButtonMenu;
+import UI.widgets.MenuBar;
 
 public class AWTMenuBar extends MenuBar implements AWTUILayer {
 

@@ -3,7 +3,7 @@ package AWT.UI;
 import java.awt.Color;
 
 import AWT.graphicdata.EditorAWTGraphicData;
-import UI.BarSlider;
+import UI.widgets.BarSlider;
 
 public class AWTBarSlider extends BarSlider {
 

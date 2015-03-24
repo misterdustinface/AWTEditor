@@ -1,9 +1,10 @@
 package AWT.UI;
 
+import generic.structures.Grid;
+
 import java.awt.Graphics2D;
 
-import UI.Grid;
-import UI.StaticGridMenu;
+import UI.widgets.StaticGridMenu;
 import AWT.rendering.AWTMenuDrawer;
 
 public class AWTStaticGridMenu extends StaticGridMenu implements AWTUILayer {

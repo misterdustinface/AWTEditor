@@ -6,11 +6,11 @@ import shapes.Point;
 import AWT.UI.AWTBarSlider;
 import AWT.UI.AWTMenuButton;
 import AWT.graphicdata.EditorAWTGraphicData;
-import UI.BarSlider;
-import UI.FileChooser;
-import UI.MenuButton;
-import UI.TextLabel;
-import UI.UIMenu;
+import UI.widgets.BarSlider;
+import UI.widgets.FileChooser;
+import UI.widgets.MenuButton;
+import UI.widgets.TextLabel;
+import UI.widgets.UIMenu;
 
 final public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer, Singleton {
 

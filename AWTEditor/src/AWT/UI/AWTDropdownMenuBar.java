@@ -3,8 +3,8 @@ package AWT.UI;
 import java.awt.Graphics2D;
 
 import AWT.rendering.AWTMenuDrawer;
-import UI.DropdownMenuBar;
-import UI.MenuButton;
+import UI.widgets.DropdownMenuBar;
+import UI.widgets.MenuButton;
 
 public class AWTDropdownMenuBar extends DropdownMenuBar implements AWTUILayer {
 	

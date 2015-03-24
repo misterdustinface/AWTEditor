@@ -3,7 +3,7 @@ package AWT.UI;
 import java.awt.Graphics2D;
 
 import AWT.rendering.AWTMenuDrawer;
-import UI.StaticListMenu;
+import UI.widgets.StaticListMenu;
 
 public class AWTStaticListMenu extends StaticListMenu implements AWTUILayer {
 

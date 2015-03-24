@@ -12,12 +12,12 @@ import AWT.UI.AWTFileChooser;
 import AWT.UI.AWTMenuButton;
 import AWT.UI.AWTStaticListMenu;
 import AWT.UI.AWTUILayer;
-import UI.ButtonMenu;
-import UI.MenuButton;
-import UI.MouseUserDevice;
+import UI.input.MouseUserDevice;
+import UI.widgets.ButtonMenu;
+import UI.widgets.MenuButton;
 import file.LuaScriptFiler;
-import generic.VoidFunctionPointer;
 import generic.ListenerPattern.Descriptive.DataModificationListener;
+import generic.fp.VoidFunctionPointer;
 
 public class AWTFileMenu implements ButtonMenu, AWTUILayer {
 

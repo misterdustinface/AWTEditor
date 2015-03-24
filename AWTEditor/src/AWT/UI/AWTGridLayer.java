@@ -7,9 +7,9 @@ import java.awt.Graphics2D;
 
 import shapes.Rectangle;
 import UI.GridLayer;
-import UI.MouseUserDevice;
 import UI.Viewport;
 import UI.Zoomable;
+import UI.input.MouseUserDevice;
 
 public class AWTGridLayer implements AWTUILayer, GridLayer {
 	
