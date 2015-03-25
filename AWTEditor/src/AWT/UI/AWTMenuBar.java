@@ -14,7 +14,6 @@ public class AWTMenuBar extends MenuBar implements AWTUILayer {
 		menuDrawer = AWTMenuDrawer.getMenuDrawer();
 	}
 	
-	@Override
 	public void render(Graphics2D g) {
 		menuDrawer.setGraphics(g);
 		

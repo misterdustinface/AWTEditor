@@ -63,7 +63,6 @@ public class AWTDisplay extends JComponent {
 		surfaceMotionListeners.add(listener);
 	}
 	
-	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponents(g);
 		repaint();
@@ -84,34 +83,32 @@ public class AWTDisplay extends JComponent {
 	
 	private void setupSurfaceListeners() {
 		this.addMouseMotionListener(new MouseMotionListener(){
-			@Override
 			public void mouseDragged(MouseEvent event) {
 				doMouseMotionListenerRoutine(event, MouseDragged.getInstance());
 			}
-			@Override
+
 			public void mouseMoved(MouseEvent event) {				
 				doMouseMotionListenerRoutine(event, MouseMoved.getInstance());
 			}
 		});
 		
 		this.addMouseListener(new MouseListener() {
-			@Override
 			public void mouseClicked(MouseEvent event) {
 				doMouseListenerRoutine(event, MouseClicked.getInstance());
 			}
-			@Override
+
 			public void mouseEntered(MouseEvent event) {
 				doMouseListenerRoutine(event, MouseEntered.getInstance());
 			}
-			@Override
+
 			public void mouseExited(MouseEvent event) {
 				doMouseListenerRoutine(event, MouseExited.getInstance());
 			}
-			@Override
+
 			public void mousePressed(MouseEvent event) {
 				doMouseListenerRoutine(event, MousePressed.getInstance());
 			}
-			@Override
+
 			public void mouseReleased(MouseEvent event) {
 				doMouseListenerRoutine(event, MouseReleased.getInstance());
 			}

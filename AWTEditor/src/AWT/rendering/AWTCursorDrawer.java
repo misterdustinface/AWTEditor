@@ -50,6 +50,7 @@ final public class AWTCursorDrawer extends AWTRenderer implements CursorDrawer, 
 	public void drawLargeCircleCursor(int X, int Y){
 		drawO(X,Y, graphicData.getThicknessOf("cursorStretchOutAmount"));
 	}
+	
 	public void drawSmallCircleCursor(int X, int Y){
 		drawO(X,Y, graphicData.getThicknessOf("cursorCenterGapAmount"));
 	}
@@ -57,6 +58,7 @@ final public class AWTCursorDrawer extends AWTRenderer implements CursorDrawer, 
 	public void drawLargeXCursor(int X, int Y){
 		drawX(X,Y, graphicData.getThicknessOf("cursorStretchOutAmount"));
 	}
+	
 	public void drawSmallXCursor(int X, int Y){
 		drawX(X,Y, graphicData.getThicknessOf("cursorCenterGapAmount"));
 	}
@@ -67,6 +69,7 @@ final public class AWTCursorDrawer extends AWTRenderer implements CursorDrawer, 
 		graphics.drawLine(	X + radius, Y - radius, 
 							X - radius, Y + radius);
 	}
+	
 	private void drawO(int X, int Y, int radius){
 		graphics.drawOval(	X - radius, 
 							Y - radius, 
@@ -74,7 +77,6 @@ final public class AWTCursorDrawer extends AWTRenderer implements CursorDrawer, 
 							radius+radius);
 	}
 	
-	@Override
 	public void drawPointerCursor(int X, int Y) {
 
 		int last = pointerCursor.xpoints.length-1;
@@ -87,4 +89,5 @@ final public class AWTCursorDrawer extends AWTRenderer implements CursorDrawer, 
 		graphics.drawLine(X + (int)pointerCursor.xpoints[0]   , Y + (int)pointerCursor.ypoints[0]   , 
 		  		  		  X + (int)pointerCursor.xpoints[last], Y + (int)pointerCursor.ypoints[last]);
 	}
+	
 }

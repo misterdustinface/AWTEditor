@@ -44,4 +44,5 @@ public class EditorAWTGraphicData extends AWTGraphicData implements Singleton, N
 	public void setThicknessOf(String name, int thickness) {
 		thicknesses.insert(name, thickness);
 	}
+
 }

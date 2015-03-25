@@ -25,7 +25,6 @@ public class AWTToggleLayersMenu extends AWTDropdownListMenu {
 		toggleButton.textLabel.center();
 		toggleButton.debounceTimer.setDebounceTime_sec(1);
 		toggleButton.setButtonPressedFunction(new VoidFunctionPointer(){
-			@Override
 			public void call() {
 				layerManager.toggleLayer(ui);
 			}

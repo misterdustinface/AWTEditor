@@ -23,7 +23,6 @@ public class AWTViewOptionsMenu extends AWTDropdownListMenu {
 		resetZoom.textLabel.setText("RESET ZOOM");
 		resetZoom.textLabel.center();
 		resetZoom.setButtonPressedFunction(new VoidFunctionPointer() {
-			@Override
 			public void call() {
 				ZOOMER.resetToDefaultZoom();
 			}
@@ -33,7 +32,6 @@ public class AWTViewOptionsMenu extends AWTDropdownListMenu {
 		gotoOrigin.textLabel.setText("TO ORIGIN");
 		gotoOrigin.textLabel.center();
 		gotoOrigin.setButtonPressedFunction(new VoidFunctionPointer() {
-			@Override
 			public void call() {
 				VIEWPORT.resetToOrigin();
 			}
@@ -49,6 +47,5 @@ public class AWTViewOptionsMenu extends AWTDropdownListMenu {
 		setRoot(optionsButton);
 		setMenu(list);
 	}
-	
 	
 }

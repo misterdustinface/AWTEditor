@@ -107,7 +107,6 @@ final public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer, Sing
 		}
 	}
 
-	@Override
 	public void drawFileChooser(FileChooser fileChooser) {
 		if (fileChooser.shouldDisplayAndUpdate()){
 			drawUIMenu(fileChooser.getFileListing());

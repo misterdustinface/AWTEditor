@@ -15,6 +15,7 @@ import UI.Viewport;
 import UI.Zoomable;
 
 public abstract class AWTZoomableViewport extends JComponent implements Viewport, Zoomable {
+	
 	private static final long serialVersionUID = -3215062024839871611L;
 	protected Point position;
 	private float zoomAmount;
@@ -25,9 +26,11 @@ public abstract class AWTZoomableViewport extends JComponent implements Viewport
 	public float getXPosition() { 
 		return position.x; 
 	}
+	
 	public float getYPosition() { 
 		return position.y; 
 	}
+	
 	public float getZoom() { 
 		return zoomAmount; 
 	}
@@ -35,19 +38,19 @@ public abstract class AWTZoomableViewport extends JComponent implements Viewport
 	public void setZoom(float ZOOM) { 
 		zoomAmount = ZOOM; 
 	}
+	
 	public void increaseZoom(float delta) { 
 		zoomAmount += delta; 
 	}
+	
 	public void decreaseZoom(float delta) { 
 		zoomAmount -= delta; 
 	}
 	
-	@Override
 	public void setWidth(int width) {
 		super.setSize(width, getHeight());
 	}
 
-	@Override
 	public void setHeight(int height) {
 		super.setSize(getWidth(), height);
 	}
@@ -56,10 +59,12 @@ public abstract class AWTZoomableViewport extends JComponent implements Viewport
 		zoomAmount = 1;
 		repaint();
 	}
+	
 	public void resetToOrigin(){
 		position.set(0,0);
 		repaint();
 	}
+	
 	public void setPosition(float x, float y) {
 		position.set(x,y);
 		repaint();
@@ -80,14 +85,13 @@ public abstract class AWTZoomableViewport extends JComponent implements Viewport
 		transform = new AffineTransform();
 		
 		this.addMouseMotionListener(new MouseMotionListener(){
-			@Override
 			public void mouseDragged(MouseEvent event) {
 				event = getWorldMouseEvent(event);
 				for (MouseMotionListener listener : viewportMotionListeners) {
 					listener.mouseDragged(event);
 				}
 			}
-			@Override
+
 			public void mouseMoved(MouseEvent event) {
 				event = getWorldMouseEvent(event);
 				for (MouseMotionListener listener : viewportMotionListeners) {
@@ -97,35 +101,34 @@ public abstract class AWTZoomableViewport extends JComponent implements Viewport
 		});
 		
 		this.addMouseListener(new MouseListener() {
-			@Override
 			public void mouseClicked(MouseEvent event) {
 				event = getWorldMouseEvent(event);
 				for (MouseListener listener : viewportMouseListeners) {
 					listener.mouseClicked(event);
 				}
 			}
-			@Override
+
 			public void mouseEntered(MouseEvent event) {
 				event = getWorldMouseEvent(event);
 				for (MouseListener listener : viewportMouseListeners) {
 					listener.mouseEntered(event);
 				}
 			}
-			@Override
+
 			public void mouseExited(MouseEvent event) {
 				event = getWorldMouseEvent(event);
 				for (MouseListener listener : viewportMouseListeners) {
 					listener.mouseExited(event);
 				}
 			}
-			@Override
+
 			public void mousePressed(MouseEvent event) {
 				event = getWorldMouseEvent(event);
 				for (MouseListener listener : viewportMouseListeners) {
 					listener.mousePressed(event);
 				}
 			}
-			@Override
+
 			public void mouseReleased(MouseEvent event) {
 				event = getWorldMouseEvent(event);
 				for (MouseListener listener : viewportMouseListeners) {
@@ -162,4 +165,5 @@ public abstract class AWTZoomableViewport extends JComponent implements Viewport
 								false, 
 								panelEvent.getButton());
 	}
+
 }

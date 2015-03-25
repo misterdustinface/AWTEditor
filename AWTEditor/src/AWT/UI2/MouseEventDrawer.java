@@ -16,55 +16,43 @@ public class MouseEventDrawer implements Runnable {
 		uiDrawer = UI_DRAWER;
 	}
 	
-	@Override
 	public void run() {
 		display.addMouseMotionListener(new MouseMotionListener() {
-			@Override
 			public void mouseDragged(MouseEvent arg0) {
 				uiDrawer.draw();
 			}
-			@Override
+
 			public void mouseMoved(MouseEvent arg0) {
 				uiDrawer.draw();
 			}
 		});
 		
 		display.addMouseListener(new MouseListener() {
-
-			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				uiDrawer.draw();
 			}
 
-			@Override
 			public void mouseEntered(MouseEvent arg0) {
 				uiDrawer.draw();
 			}
 
-			@Override
 			public void mouseExited(MouseEvent arg0) {
 				uiDrawer.draw();
 			}
 
-			@Override
 			public void mousePressed(MouseEvent arg0) {
 				uiDrawer.draw();
 			}
 
-			@Override
 			public void mouseReleased(MouseEvent arg0) {
 				uiDrawer.draw();
 			}
-			
 		});
 		
 		display.addMouseWheelListener(new MouseWheelListener() {
-
-			@Override
 			public void mouseWheelMoved(MouseWheelEvent arg0) {
 				uiDrawer.draw();
 			}
-			
 		});
 	}
 

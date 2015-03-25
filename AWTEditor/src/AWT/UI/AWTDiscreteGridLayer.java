@@ -29,7 +29,6 @@ public class AWTDiscreteGridLayer extends AWTGridLayer implements DiscreteGridLa
 		tileSelectedNotifier.addListener(listener);
 	}
 	
-	@Override
 	public void update(MouseUserDevice mouse) {
 		setMousePosition((int)mouse.getCursorX(), (int)mouse.getCursorY());
 		
@@ -40,28 +39,23 @@ public class AWTDiscreteGridLayer extends AWTGridLayer implements DiscreteGridLa
 		super.update(mouse);
 	}
 	
-	@Override
 	public void render(Graphics2D g) {
 		super.render(g);
 		highlightMouseoverGridSquare(g);
 	}
 	
-	@Override
 	public int getSelectedRow() {
 		return selectedRow;
 	}
 
-	@Override
 	public int getSelectedCol() {
 		return selectedCol;
 	}
 	
-	@Override
 	public int getMouseoverRow() {
 		return getMouseoverTileRow();
 	}
 
-	@Override
 	public int getMouseoverCol() {
 		return getMouseoverTileCol();
 	}	
@@ -90,6 +84,7 @@ public class AWTDiscreteGridLayer extends AWTGridLayer implements DiscreteGridLa
 	private int getMouseoverTileXPosition() {
 		return Discretizer.getMouseoverTileXPosition(mouseX, this);
 	}
+	
 	private int getMouseroverTileYPosition() {
 		return Discretizer.getMouseoverTileYPosition(mouseY, this);
 	}

@@ -12,29 +12,24 @@ public abstract class AWTMouseUserDevice extends MouseUserDevice implements Mous
 		super(); 
 	}
 	
-	@Override
 	public void mouseClicked(MouseEvent e) { 
 		click(); 
 		recordButtonData(e); 
 	}
 	
-	@Override
 	public void mousePressed(MouseEvent e) { 
 		press(); 
 		recordButtonData(e); 
 	}
 	
-	@Override
 	public void mouseReleased(MouseEvent e) { 
 		release(); 
 	}
 	
-	@Override
 	public void mouseDragged(MouseEvent e) { 
 		drag(); 
 	}
 	
-	@Override
 	public void mouseMoved(MouseEvent e) { 
 		move(); 
 	}
@@ -48,13 +43,12 @@ public abstract class AWTMouseUserDevice extends MouseUserDevice implements Mous
 		}
 	}
 
-	@Override
 	public void mouseEntered(MouseEvent e) {
 		
 	}
 	
-	@Override
 	public void mouseExited(MouseEvent e) {
 		
 	}
+	
 }

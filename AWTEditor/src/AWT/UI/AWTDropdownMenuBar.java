@@ -15,7 +15,6 @@ public class AWTDropdownMenuBar extends DropdownMenuBar implements AWTUILayer {
 		menuDrawer = AWTMenuDrawer.getMenuDrawer();
 	}
 
-	@Override
 	public void render(Graphics2D g) {
 		menuDrawer.setGraphics(g);
 		menuDrawer.drawButton(dropdownButton);
@@ -24,8 +23,8 @@ public class AWTDropdownMenuBar extends DropdownMenuBar implements AWTUILayer {
 		}
 	}
 
-	@Override
 	protected MenuButton extendedMenuButton() {
 		return new AWTMenuButton();
 	}
+	
 }

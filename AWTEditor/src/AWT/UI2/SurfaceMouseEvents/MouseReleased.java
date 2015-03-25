@@ -4,6 +4,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class MouseReleased implements SurfaceMouseListenerFunction {
+	
 	private static final MouseReleased instance = new MouseReleased();
 	private MouseReleased() {
 		
@@ -13,8 +14,8 @@ public class MouseReleased implements SurfaceMouseListenerFunction {
 		return instance;
 	}
 	
-	@Override
 	public void call(MouseListener listener, MouseEvent event) {
 		listener.mouseReleased(event);
 	}
+	
 }

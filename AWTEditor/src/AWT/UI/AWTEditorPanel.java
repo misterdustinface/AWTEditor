@@ -23,7 +23,6 @@ public class AWTEditorPanel extends AWTZoomableViewport {
 	private UILayerManager layerManager;
 	private Graphics2D graphics2D;
 	private UIFunction uiRender = new UIFunction() {
-		@Override
 		public void call(UILayer ui) {
 			((AWTUILayer)ui).render(graphics2D);
 		}
@@ -45,11 +44,11 @@ public class AWTEditorPanel extends AWTZoomableViewport {
 		this.layerManager = layerManager;
 	}	
 	
-	@Override
     protected void paintComponent(Graphics g){		
 		super.paintComponent(g);
 		repaint();
 		graphics2D = (Graphics2D)g;
 		layerManager.forAllUIPerformFunctionBackToFront(uiRender);
     }
+    
 }

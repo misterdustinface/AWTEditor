@@ -11,7 +11,6 @@ public class FixedDrawer implements Runnable {
 		uiDrawer = UI_DRAWER;
 		thread = new TickingLoop();
 		thread.addFunction(new VoidFunctionPointer() {
-			@Override
 			public void call() {
 				uiDrawer.draw();
 			}
@@ -23,8 +22,8 @@ public class FixedDrawer implements Runnable {
 		thread.setUpdatesPerSecond(DPS);
 	}
 	
-	@Override
 	public void run() {
 		thread.run();
 	}
+	
 }

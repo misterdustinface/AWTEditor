@@ -18,13 +18,12 @@ public class AWTMenuButtonLayer implements AWTUILayer {
 		this.button = button;
 	}
 
-	@Override
 	public void update(MouseUserDevice mouse) {
 		button.update(mouse);
 	}
 
-	@Override
 	public void render(Graphics2D g) {
 		buttonDrawer.drawButton(button);
 	}
+	
 }

@@ -24,7 +24,6 @@ final public class AWTProgramWindow extends JFrame {
 	}
 	
 //	private WindowAdapter closeWindowEvent = new WindowAdapter() {
-//        @Override
 //        public void windowClosing(WindowEvent we) {
 //        	setVisible(false);
 //        	dispose();

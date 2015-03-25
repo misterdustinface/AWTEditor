@@ -17,15 +17,14 @@ public class AWTSimpleUserDeviceDisplayLayer implements AWTUILayer {
 		cursorDrawer = AWTCursorDrawer.getCursorDrawer();
 	}
 	
-	@Override
 	public void render(Graphics2D g) {
 		cursorDrawer.setGraphics(g);
 		cursorDrawer.setColor(Color.BLACK);
 		cursorDrawer.drawPointerCursor((int)userDevice.getCursorX(), (int)userDevice.getCursorY());
 	}
 
-	@Override
 	public void update(MouseUserDevice mouse) {
 		
 	}
+	
 }

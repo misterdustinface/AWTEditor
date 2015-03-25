@@ -56,18 +56,18 @@ public class AWTGridLayer implements AWTUILayer, GridLayer {
 	public int getTileWidth() { 
 		return MINOR_LINE_WIDTH_SPACING; 
 	}
+	
 	public int getTileHeight() { 
 		return MINOR_LINE_HEIGHT_SPACING; 
 	}
 	
-	@Override
 	public void render(Graphics2D g) {
 		drawBackground(g);
 		drawMinorLines(g);
 		drawMajorLines(g);
 		drawOriginLines(g);
 	}
-	@Override
+
 	public void update(MouseUserDevice mouse) {
 		setCenter((int)viewport.getXPosition(), (int)viewport.getYPosition());
 		setDimensions(viewport.getWidth(), viewport.getHeight());
@@ -79,10 +79,12 @@ public class AWTGridLayer implements AWTUILayer, GridLayer {
 		xPos = X; 
 		yPos = Y; 
 	}
+	
 	private void setDimensions(float WIDTH, float HEIGHT) { 
 		width = WIDTH; 
 		height = HEIGHT; 
 	}
+	
 	private void setZoom(float ZOOM) { 
 		zoom = ZOOM; 
 	}
@@ -93,14 +95,17 @@ public class AWTGridLayer implements AWTUILayer, GridLayer {
 		drawingBounds.width  = 2*(int)(width/zoom);
 		drawingBounds.height = 2*(int)(height/zoom);
 	}
+	
 	private void drawBackground(Graphics g){
 		g.setColor(BACKGROUND_COLOR);
 		g.fillRect((int)drawingBounds.x, (int)drawingBounds.y, (int)drawingBounds.width, (int)drawingBounds.height);
 	}
+	
 	private void drawMinorLines(Graphics g){
 		g.setColor(MINOR_LINES_COLOR);
 		makeCrissCrossLines(g, MINOR_LINE_WIDTH_SPACING, MINOR_LINE_HEIGHT_SPACING);
 	}
+	
 	private void drawMajorLines(Graphics g){
 		g.setColor(MAJOR_LINES_COLOR);
 		makeCrissCrossLines(g, MAJOR_LINE_WIDTH_SPACING, MAJOR_LINE_HEIGHT_SPACING);

@@ -16,8 +16,7 @@ public class AWTZoomWheelListener implements MouseWheelListener {
 	public AWTZoomWheelListener(Zoomable ZOOMER) {
 		zoomer = ZOOMER;
 	}
-	
-	@Override
+
 	public void mouseWheelMoved(MouseWheelEvent e) {		
 		if (e.getPreciseWheelRotation() > 0) {
 			zoomOut();
@@ -33,6 +32,7 @@ public class AWTZoomWheelListener implements MouseWheelListener {
 			zoomer.setZoom(MAX_ZOOM);
 		}
 	}
+	
 	public void zoomOut(){
 		zoomer.decreaseZoom(ZOOM_TICK_VIEW_SCALE_MODIFIER);
 		if (zoomer.getZoom() < MIN_ZOOM) {
@@ -41,4 +41,5 @@ public class AWTZoomWheelListener implements MouseWheelListener {
 			//position.set(mouse.getCursorX(), mouse.getCursorY());
 		}
 	}
+	
 }

@@ -13,7 +13,6 @@ public class AWTUIDrawer {
 	private Graphics2D graphics;
 	private UILayerManager layerManager;
 	private UIFunction uiRender = new UIFunction() {
-		@Override
 		public void call(UILayer ui) {
 			((AWTUILayer)ui).render(graphics);
 		}
@@ -34,4 +33,5 @@ public class AWTUIDrawer {
 		graphics = drawing.getImageGraphics();
 		layerManager.forAllUIPerformFunctionBackToFront(uiRender);
 	}
+	
 }

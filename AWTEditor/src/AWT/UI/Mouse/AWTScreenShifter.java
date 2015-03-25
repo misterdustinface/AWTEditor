@@ -20,7 +20,6 @@ public class AWTScreenShifter implements MouseListener, MouseMotionListener {
 		lastOffset     = new Point(0,0);
 	}
 	
-	@Override
 	public void mousePressed(MouseEvent e) {
 		if (e.getButton() == MouseEvent.BUTTON2
 		|| (e.getButton() == MouseEvent.BUTTON1 && e.isControlDown())) {
@@ -28,25 +27,23 @@ public class AWTScreenShifter implements MouseListener, MouseMotionListener {
 			lastOffset.set(e.getX(), e.getY());
 		}
 	}
-	@Override
+
 	public void mouseReleased(MouseEvent e) {
 		shiftingScreen = false;
 	}
-	@Override
+
 	public void mouseClicked(MouseEvent e) {
 		
 	}
-	@Override
+
 	public void mouseEntered(MouseEvent e) {
 		
 	}
-	@Override
+
 	public void mouseExited(MouseEvent e) {
 		
 	}
 
-
-	@Override
 	public void mouseDragged(MouseEvent e) {
 		if (shiftingScreen) {
 			int newX = e.getX() - (int)lastOffset.x;
@@ -56,7 +53,6 @@ public class AWTScreenShifter implements MouseListener, MouseMotionListener {
 		}
 	}
 	
-	@Override
 	public void mouseMoved(MouseEvent e) {
 		lastOffset.shift(e.getX(), e.getY());
 	}

@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.util.Random;
 
 public abstract class AWTColorGenerator {
+	
 	public static Color randomColor(){
 		return new Color(	(int)(Math.random()*250), 
 				  			(int)(Math.random()*250), 
@@ -48,4 +49,5 @@ public abstract class AWTColorGenerator {
 							(primary.getGreen() + secondary.getGreen())/2,
 							(primary.getBlue() + secondary.getBlue())/2);
 	}
+
 }

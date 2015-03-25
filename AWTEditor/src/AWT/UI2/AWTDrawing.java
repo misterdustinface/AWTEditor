@@ -41,7 +41,6 @@ public class AWTDrawing implements AWTRenderable {
 		return imageGraphics;
 	}
 	
-	@Override
 	public void render(Graphics2D g) {
 		applyDrawingToGraphicsObject(g, 0, 0);
 	}
@@ -57,4 +56,5 @@ public class AWTDrawing implements AWTRenderable {
 	final public int getHeight() {
 		return image.getHeight();
 	}
+	
 }

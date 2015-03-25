@@ -32,7 +32,6 @@ public class AWTFileMenu implements ButtonMenu, AWTUILayer {
 	private boolean isLoading;
 	
 	public final VoidFunctionPointer SAVE = new VoidFunctionPointer() {
-		@Override
 		public void call() {
 			fileChooser.chooseFile();
 			isSaving = true;
@@ -40,7 +39,6 @@ public class AWTFileMenu implements ButtonMenu, AWTUILayer {
 	};
 	
 	public final VoidFunctionPointer LOAD = new VoidFunctionPointer() {
-		@Override
 		public void call() {
 			fileChooser.chooseFile();
 			isLoading = true;
@@ -57,7 +55,6 @@ public class AWTFileMenu implements ButtonMenu, AWTUILayer {
 		fileChooser = new AWTFileChooser();
 		
 		DataModificationListener fileSelected = new DataModificationListener(){
-			@Override
 			protected void whenMyDataIsModifiedExternally() {
 				if (isSaving){
 					try {
@@ -115,19 +112,16 @@ public class AWTFileMenu implements ButtonMenu, AWTUILayer {
 		dropdownListMenu.setMenu(list);
 	}
 	
-	@Override
 	public void update(MouseUserDevice mouse) {
 		dropdownListMenu.update(mouse);
 		fileChooser.update(mouse);
 	}
 	
-	@Override
 	public void render(Graphics2D g) {
 		((AWTDropdownListMenu)dropdownListMenu).render(g);
 		((AWTFileChooser)fileChooser).render(g);
 	}	
 
-	@Override
 	public void refreshButton(int index) {
 		dropdownListMenu.refreshButton(index);
 	}
@@ -135,52 +129,69 @@ public class AWTFileMenu implements ButtonMenu, AWTUILayer {
 	public int getX() { 
 		return dropdownListMenu.getX(); 
 	}
+	
 	public int getY() { 
 		return dropdownListMenu.getY(); 
 	}
+	
 	public int getWidth() { 
 		return dropdownListMenu.getWidth(); 
 	}
+	
 	public int getHeight() { 
 		return dropdownListMenu.getHeight();
 	}
+	
 	public void setPosition(Point POSITION) {
 		dropdownListMenu.setPosition(POSITION);
 	}
+	
 	public void setButtonOffset(int BUTTON_OFFSET) { 
 		dropdownListMenu.setButtonOffset(BUTTON_OFFSET);
 	}
+	
 	public void setButtonSize(int BUTTON_SIZE)     {
 		dropdownListMenu.setButtonSize(BUTTON_SIZE);
 	}
+	
 	public void setButtonDimensions(int WIDTH, int HEIGHT) {
 		dropdownListMenu.setButtonDimensions(WIDTH, HEIGHT);
 	}
+	
 	public void setButtons(MenuButton ... BUTTONS) {
 		dropdownListMenu.setButtons(BUTTONS);
 	}
+	
 	public void setButtons(ArrayList<MenuButton> BUTTONS) {
 		dropdownListMenu.setButtons(BUTTONS);
 	}
+	
 	public void addButton(MenuButton BUTTON) {
 		dropdownListMenu.addButton(BUTTON);
 	}
+	
 	public void removeButton(MenuButton BUTTON) {
 		dropdownListMenu.removeButton(BUTTON);
 	}
+	
 	public void clearButtons() {
 		dropdownListMenu.clearButtons();
 	}
+	
 	public void refreshButtons() {
 		dropdownListMenu.refreshButtons();
 	}
+	
 	public int numberOfButtons() { 
 		return dropdownListMenu.numberOfButtons(); 
 	}
+	
 	public MenuButton getButton(int index) { 
 		return dropdownListMenu.getButton(index); 
 	}
+	
 	public boolean contains(MouseUserDevice mouse) {
 		return dropdownListMenu.contains(mouse);
 	}
+	
 }
