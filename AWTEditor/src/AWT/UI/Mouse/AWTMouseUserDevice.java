@@ -51,4 +51,24 @@ public abstract class AWTMouseUserDevice extends MouseUserDevice implements Mous
 		
 	}
 	
+	public void forceClick() {
+		click();
+	}
+	
+	public void forcePress() {
+		press();
+	}
+	
+	public void forceRelease() {
+		release();
+	}
+	
+	public void forceButton(String button) {
+		setButton(button);
+	}
+	
+	public void forcePosition(float x, float y) {
+		cursorPosition.set(x, y);
+	}
+	
 }
