@@ -8,7 +8,9 @@ import UI.input.MouseUserDevice;
 
 public abstract class AWTMouseUserDevice extends MouseUserDevice implements MouseListener, MouseMotionListener {
 	
-	public AWTMouseUserDevice(){ super(); }
+	public AWTMouseUserDevice() { 
+		super(); 
+	}
 	
 	@Override
 	public void mouseClicked(MouseEvent e) { 
@@ -39,10 +41,10 @@ public abstract class AWTMouseUserDevice extends MouseUserDevice implements Mous
 	
 	private void recordButtonData(MouseEvent arg0) {
 		switch(arg0.getButton()) {
-		case MouseEvent.BUTTON1: buttonOne();   break;
-		case MouseEvent.BUTTON2: buttonTwo();   break;
-		case MouseEvent.BUTTON3: buttonThree(); break;
-		default:				 noButton();    break;
+		case MouseEvent.BUTTON1: setButton(LEFT);      break;
+		case MouseEvent.BUTTON2: setButton(MIDDLE);    break;
+		case MouseEvent.BUTTON3: setButton(RIGHT);     break;
+		default:				 setButton(NO_BUTTON); break;
 		}
 	}
 
