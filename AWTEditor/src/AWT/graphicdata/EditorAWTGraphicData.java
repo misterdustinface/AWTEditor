@@ -15,22 +15,22 @@ public class EditorAWTGraphicData extends AWTGraphicData implements Singleton, N
 	}
 	
 	private void loadColors() {
-		colors.put("clear", new Color(0,0,0,0));
-		colors.put("lightclear", new Color(50,50,50,50));
-		colors.put("button", new Color(150,150,150));
-		colors.put("buttonHighlight", new Color(125,125,162));
-		colors.put("buttonPressed", new Color(175,100,175));
-		colors.put("base", new Color(200,200,200));
-		colors.put("MENU_BACKGROUND", new Color(240,240,240));
-		colors.put("BACKGROUND", new Color(240,240,240));
-		colors.put("PLUS_SIGN", new Color(165,165,165));
+		colors.insert("clear", new Color(0,0,0,0));
+		colors.insert("lightclear", new Color(50,50,50,50));
+		colors.insert("button", new Color(150,150,150));
+		colors.insert("buttonHighlight", new Color(125,125,162));
+		colors.insert("buttonPressed", new Color(175,100,175));
+		colors.insert("base", new Color(200,200,200));
+		colors.insert("MENU_BACKGROUND", new Color(240,240,240));
+		colors.insert("BACKGROUND", new Color(240,240,240));
+		colors.insert("PLUS_SIGN", new Color(165,165,165));
 	}
 	
 	private void loadThicknesses() {
-		thicknesses.put("pointSize", 4);
-		thicknesses.put("cursorStretchOutAmount", 10);
-		thicknesses.put("cursorCenterGapAmount", 2);
-		thicknesses.put("plusSign", 4);
+		thicknesses.insert("pointSize", 4);
+		thicknesses.insert("cursorStretchOutAmount", 10);
+		thicknesses.insert("cursorCenterGapAmount", 2);
+		thicknesses.insert("plusSign", 4);
 	}
 	
 	public static EditorAWTGraphicData getGraphicData() {
@@ -38,10 +38,10 @@ public class EditorAWTGraphicData extends AWTGraphicData implements Singleton, N
 	}
 	
 	public void scaleThicknessOf(String name, float scaleFactor) {
-		thicknesses.put("name", (int) (thicknesses.get(name) * scaleFactor));
+		thicknesses.insert("name", (int) (thicknesses.get(name) * scaleFactor));
 	}
 	
 	public void setThicknessOf(String name, int thickness) {
-		thicknesses.put(name, thickness);
+		thicknesses.insert(name, thickness);
 	}
 }

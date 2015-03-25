@@ -1,26 +1,26 @@
 package AWT.graphicdata;
 
+import generic.datastructures.Table;
 import generic.tags.NamedData;
 
 import java.awt.Color;
-import java.util.HashMap;
 
 public abstract class AWTGraphicData implements NamedData {
 	
-	final protected HashMap<String, Color> colors;
-	final protected HashMap<String, Integer> thicknesses;
+	final protected Table<Color> colors;
+	final protected Table<Integer> thicknesses;
 	
 	public AWTGraphicData() {
-		colors = new HashMap<String, Color>();
-		thicknesses = new HashMap<String, Integer>();
+		colors = new Table<Color>();
+		thicknesses = new Table<Integer>();
 	}
 	
 	final public Color getColorOf(String name) {
-		return colors.containsKey(name) ? colors.get(name) : Color.LIGHT_GRAY;
+		return colors.contains(name) ? colors.get(name) : Color.LIGHT_GRAY;
 	}
 	
 	final public int getThicknessOf(String name) {
-		return thicknesses.containsKey(name) ? thicknesses.get(name) : 0;
+		return thicknesses.contains(name) ? thicknesses.get(name) : 0;
 	}
 	
 	//private final static String GRAPHIC_DATA_FILE = "graphicdata.lua";
