@@ -3,14 +3,13 @@ package AWT.UI2;
 import generic.TickingLoop;
 import generic.fp.VoidFunctionPointer;
 
-public class FixedDrawer implements Runnable {
+public class FixedDrawer extends TickingLoop {
+	
 	private AWTUIDrawer uiDrawer;
-	private TickingLoop thread;
 	
 	public FixedDrawer(AWTUIDrawer UI_DRAWER) {
 		uiDrawer = UI_DRAWER;
-		thread = new TickingLoop();
-		thread.addFunction(new VoidFunctionPointer() {
+		super.addFunction(new VoidFunctionPointer() {
 			public void call() {
 				uiDrawer.draw();
 			}
@@ -19,11 +18,7 @@ public class FixedDrawer implements Runnable {
 	}
 	
 	public void setDrawsPerSecond(int DPS) {
-		thread.setUpdatesPerSecond(DPS);
-	}
-	
-	public void run() {
-		thread.run();
+		super.setUpdatesPerSecond(DPS);
 	}
 	
 }
