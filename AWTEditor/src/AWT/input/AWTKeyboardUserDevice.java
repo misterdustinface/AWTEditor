@@ -14,27 +14,25 @@ public class AWTKeyboardUserDevice extends KeyboardUserDevice implements KeyList
 	}
 	
 	public void keyPressed(KeyEvent ke) {
-		InputEvent event = new InputEvent();
-		describeKeyEvent(event, ke);
+		InputEvent event = makeInputEventThatDescribesKeyEvent(ke);
 		InputEventBuilder.press(event);
-		createEvent(event);
+		addEvent(event);
 	}
 
 	public void keyReleased(KeyEvent ke) {
-		InputEvent event = new InputEvent();
-		describeKeyEvent(event, ke);
+		InputEvent event = makeInputEventThatDescribesKeyEvent(ke);
 		InputEventBuilder.release(event);
-		createEvent(event);	
+		addEvent(event);	
 	}
 
 	public void keyTyped(KeyEvent ke) {
 		
 	}
 	
-	private void describeKeyEvent(InputEvent event, KeyEvent ke) {
-		InputEventBuilder.add(event, Character.toString(ke.getKeyChar()));
-		InputEventBuilder.add(event, Integer.toString(ke.getKeyCode()));
-		InputEventBuilder.add(event, KeyEvent.getKeyText(ke.getKeyCode()));
+	private InputEvent makeInputEventThatDescribesKeyEvent(KeyEvent ke) {
+		return InputEventBuilder.createWithDescription(Character.toString(ke.getKeyChar()),
+								 						Integer.toString(ke.getKeyCode()),
+								 						KeyEvent.getKeyText(ke.getKeyCode()));
 	}
 
 }
