@@ -44,11 +44,15 @@ public abstract class AWTMouseUserDevice extends MouseUserDevice implements Mous
 	}
 
 	public void mouseEntered(MouseEvent e) {
-		
+//		InputEvent event = new InputEvent();
+//		InputEventBuilder.add(event, "Entered Screen");
+//		createEvent(event);
 	}
 	
 	public void mouseExited(MouseEvent e) {
-		
+//		InputEvent event = new InputEvent();
+//		InputEventBuilder.add(event, "Exited Screen");
+//		createEvent(event);
 	}
 	
 	public void forceClick() {
