@@ -8,9 +8,9 @@ import UI.input.InputEventBuilder;
 import UI.input.KeyboardUserDevice;
 
 public class AWTKeyboardUserDevice extends KeyboardUserDevice implements KeyListener {
-	
-	public AWTKeyboardUserDevice() {
-		
+
+	public AWTKeyboardUserDevice() {		
+
 	}
 	
 	public void keyPressed(KeyEvent ke) {
@@ -22,11 +22,11 @@ public class AWTKeyboardUserDevice extends KeyboardUserDevice implements KeyList
 	public void keyReleased(KeyEvent ke) {
 		InputEvent event = makeInputEventThatDescribesKeyEvent(ke);
 		InputEventBuilder.release(event);
-		addEvent(event);	
+		addEvent(event);
 	}
 
 	public void keyTyped(KeyEvent ke) {
-		
+
 	}
 	
 	private InputEvent makeInputEventThatDescribesKeyEvent(KeyEvent ke) {
