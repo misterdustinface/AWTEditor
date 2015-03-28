@@ -7,11 +7,14 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 import shapes.Point;
+import shapes.Polygon;
+import shapes.PolygonBuilder;
 import AWT.UI.AWTDropdownListMenu;
 import AWT.UI.AWTFileChooser;
 import AWT.UI.AWTMenuButton;
 import AWT.UI.AWTStaticListMenu;
 import AWT.UI.AWTUILayer;
+import AWT.graphicdata.EditorAWTGraphicData;
 import UI.input.MouseUserDevice;
 import UI.widgets.ButtonMenu;
 import UI.widgets.MenuButton;
@@ -86,7 +89,10 @@ public class AWTFileMenu implements ButtonMenu, AWTUILayer {
 		AWTMenuButton fileButton = new AWTMenuButton();
 		fileButton.textLabel.setText("FILE");
 		fileButton.textLabel.center();
-		fileButton.makeSuggestedBoxRelativeToPoint(0, 0, 2, 2);
+		EditorAWTGraphicData graphicData = EditorAWTGraphicData.getGraphicData();
+		Polygon p = PolygonBuilder.makeBox(graphicData.getThicknessOf("buttonWidth"), graphicData.getThicknessOf("buttonHeight"));
+		p.shift(2, 2);
+		fileButton.setPolygon(p);
 		
 		AWTMenuButton saveButton = new AWTMenuButton();
 		saveButton.textLabel.setText(SAVE_STRING);

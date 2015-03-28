@@ -23,7 +23,7 @@ public class AWTDropdownMenuBar extends DropdownMenuBar implements AWTUILayer {
 		}
 	}
 
-	protected MenuButton extendedMenuButton() {
+	protected MenuButton newDropdownMenuButton() {
 		return new AWTMenuButton();
 	}
 	

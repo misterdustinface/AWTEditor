@@ -31,6 +31,8 @@ public class EditorAWTGraphicData extends AWTGraphicData implements Singleton, N
 		thicknesses.insert("cursorStretchOutAmount", 10);
 		thicknesses.insert("cursorCenterGapAmount", 2);
 		thicknesses.insert("plusSign", 4);
+		thicknesses.insert("buttonWidth", 100);
+		thicknesses.insert("buttonHeight", 40);
 	}
 	
 	public static EditorAWTGraphicData getGraphicData() {
