@@ -1,5 +1,6 @@
 package AWT.UI;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 
 import AWT.rendering.AWTMenuDrawer;
@@ -22,7 +23,11 @@ public class AWTFileChooser extends FileChooser implements AWTUILayer {
 	}
 	
 	protected MenuButton extendedMenuButton() { 
-		return new AWTMenuButton(); 
+		AWTMenuButton button = new AWTMenuButton();
+		button.getTextLabel().setMaxTextWidth(20);
+		button.fill();
+		button.setColor(Color.DARK_GRAY, Color.LIGHT_GRAY, Color.DARK_GRAY);
+		return button; 
 	}
 	
 }

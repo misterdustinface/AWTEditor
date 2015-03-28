@@ -18,8 +18,7 @@ public class AWTViewOptionsMenu extends AWTDropdownListMenu {
 		super();
 
 		AWTMenuButton optionsButton = new AWTMenuButton();
-		optionsButton.textLabel.setText("OPTIONS");
-		optionsButton.textLabel.center();
+		optionsButton.setText("OPTIONS");
 		
 		EditorAWTGraphicData graphicData = EditorAWTGraphicData.getGraphicData();
 		Polygon p = PolygonBuilder.makeBox(graphicData.getThicknessOf("buttonWidth"), graphicData.getThicknessOf("buttonHeight"));
@@ -27,8 +26,7 @@ public class AWTViewOptionsMenu extends AWTDropdownListMenu {
 		optionsButton.setPolygon(p);
 		
 		AWTMenuButton resetZoom = new AWTMenuButton();
-		resetZoom.textLabel.setText("RESET ZOOM");
-		resetZoom.textLabel.center();
+		resetZoom.setText("RESET ZOOM");
 		resetZoom.setButtonPressedFunction(new VoidFunctionPointer() {
 			public void call() {
 				ZOOMER.resetToDefaultZoom();
@@ -36,8 +34,7 @@ public class AWTViewOptionsMenu extends AWTDropdownListMenu {
 		});
 		
 		AWTMenuButton gotoOrigin = new AWTMenuButton();
-		gotoOrigin.textLabel.setText("TO ORIGIN");
-		gotoOrigin.textLabel.center();
+		gotoOrigin.setText("TO ORIGIN");
 		gotoOrigin.setButtonPressedFunction(new VoidFunctionPointer() {
 			public void call() {
 				VIEWPORT.resetToOrigin();
@@ -47,9 +44,9 @@ public class AWTViewOptionsMenu extends AWTDropdownListMenu {
 		MenuButton[] menuButtons = new MenuButton[] {resetZoom, gotoOrigin};
 		AWTStaticListMenu list = new AWTStaticListMenu();
 		list.setButtons(menuButtons);
-		list.setPosition(new Point(282,2 + optionsButton.getHeight()));
+		list.setPosition(new Point(282,2 + optionsButton.getBoundingRectangle().height));
 		list.setButtonOffset(2);
-		list.setButtonDimensions((int)optionsButton.getWidth() - 4, (int)optionsButton.getHeight() - 4);
+		list.setButtonDimensions((int)optionsButton.getBoundingRectangle().width - 4, (int)optionsButton.getBoundingRectangle().height - 4);
 		
 		setRoot(optionsButton);
 		setMenu(list);

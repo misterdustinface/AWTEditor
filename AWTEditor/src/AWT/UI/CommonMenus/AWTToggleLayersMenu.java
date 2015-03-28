@@ -24,9 +24,8 @@ public class AWTToggleLayersMenu extends AWTDropdownListMenu {
 	
 	public void addMenuItemToggleUI(String title, final AWTUILayer ui) {
 		AWTMenuButton toggleButton = new AWTMenuButton();
-		toggleButton.textLabel.setText(title);
-		toggleButton.textLabel.center();
-		toggleButton.debounceTimer.setDebounceTime_sec(1);
+		toggleButton.setText(title);
+		toggleButton.setDebounceTime__sec(1);
 		toggleButton.setButtonPressedFunction(new VoidFunctionPointer(){
 			public void call() {
 				layerManager.toggleLayer(ui);
@@ -38,8 +37,7 @@ public class AWTToggleLayersMenu extends AWTDropdownListMenu {
 	private void setup() {
 
 		AWTMenuButton optionsButton = new AWTMenuButton();
-		optionsButton.textLabel.setText("TOGGLE");
-		optionsButton.textLabel.center();
+		optionsButton.setText("TOGGLE");
 		
 		EditorAWTGraphicData graphicData = EditorAWTGraphicData.getGraphicData();
 		Polygon p = PolygonBuilder.makeBox(graphicData.getThicknessOf("buttonWidth"), graphicData.getThicknessOf("buttonHeight"));
@@ -49,9 +47,9 @@ public class AWTToggleLayersMenu extends AWTDropdownListMenu {
 		MenuButton[] menuButtons = new MenuButton[] { };
 		AWTStaticListMenu list = new AWTStaticListMenu();
 		list.setButtons(menuButtons);
-		list.setPosition(new Point(142,2 + optionsButton.getHeight()));
+		list.setPosition(new Point(142,2 + optionsButton.getBoundingRectangle().height));
 		list.setButtonOffset(2);
-		list.setButtonDimensions((int)optionsButton.getWidth() - 4, (int)optionsButton.getHeight() - 4);
+		list.setButtonDimensions((int)optionsButton.getBoundingRectangle().width - 4, (int)optionsButton.getBoundingRectangle().height - 4);
 		
 		setRoot(optionsButton);
 		setMenu(list);

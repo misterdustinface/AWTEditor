@@ -87,31 +87,28 @@ public class AWTFileMenu implements ButtonMenu, AWTUILayer {
 	private void setupDropdownListMenu() {
 		
 		AWTMenuButton fileButton = new AWTMenuButton();
-		fileButton.textLabel.setText("FILE");
-		fileButton.textLabel.center();
+		fileButton.setText("FILE");
 		EditorAWTGraphicData graphicData = EditorAWTGraphicData.getGraphicData();
 		Polygon p = PolygonBuilder.makeBox(graphicData.getThicknessOf("buttonWidth"), graphicData.getThicknessOf("buttonHeight"));
 		p.shift(2, 2);
 		fileButton.setPolygon(p);
 		
 		AWTMenuButton saveButton = new AWTMenuButton();
-		saveButton.textLabel.setText(SAVE_STRING);
-		saveButton.textLabel.center();
-		saveButton.debounceTimer.setDebounceTime_sec(1);
+		saveButton.setText(SAVE_STRING);
+		saveButton.setDebounceTime__sec(1);
 		saveButton.setButtonPressedFunction(SAVE);
 		
 		AWTMenuButton openButton = new AWTMenuButton();
-		openButton.textLabel.setText(LOAD_STRING);
-		openButton.textLabel.center();
-		openButton.debounceTimer.setDebounceTime_sec(1);
+		openButton.setText(LOAD_STRING);
+		openButton.setDebounceTime__sec(1);
 		openButton.setButtonPressedFunction(LOAD);
 		
 		MenuButton[] fileMenuOptions = new MenuButton[] { saveButton, openButton };
 		AWTStaticListMenu list = new AWTStaticListMenu();
 		list.setButtons(fileMenuOptions);
-		list.setPosition(new Point(2,2 + fileButton.getHeight()));
+		list.setPosition(new Point(2,2 + fileButton.getBoundingRectangle().height));
 		list.setButtonOffset(2);
-		list.setButtonDimensions((int)fileButton.getWidth() - 4, (int)fileButton.getHeight() - 4);
+		list.setButtonDimensions((int)fileButton.getBoundingRectangle().width - 4, (int)fileButton.getBoundingRectangle().height - 4);
 		
 		dropdownListMenu = new AWTDropdownListMenu();
 		dropdownListMenu.setRoot(fileButton);

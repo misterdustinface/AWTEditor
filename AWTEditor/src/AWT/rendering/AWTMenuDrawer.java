@@ -3,8 +3,10 @@ package AWT.rendering;
 import generic.tags.Singleton;
 import rendering.MenuDrawer;
 import shapes.Point;
+import shapes.Rectangle;
 import AWT.UI.AWTBarSlider;
 import AWT.UI.AWTMenuButton;
+import AWT.graphicdata.AWTColorGenerator;
 import AWT.graphicdata.EditorAWTGraphicData;
 import UI.widgets.BarSlider;
 import UI.widgets.FileChooser;
@@ -45,25 +47,26 @@ final public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer, Sing
 	private void drawButton( AWTMenuButton b ) {
 		shapeDrawer.setGraphics(graphics);
 		shapeDrawer.setColor(((AWTMenuButton)b).getColor());
-		shapeDrawer.drawPolygon(b.polygon);
-		drawTextLabel(b.textLabel);
+		shapeDrawer.drawPolygon(b.getPolygon());
+		drawTextLabel(b.getTextLabel());
 	}
 	
 	private void drawFilledButton( AWTMenuButton b ) {
 		shapeDrawer.setGraphics(graphics);
 		shapeDrawer.setColor(((AWTMenuButton)b).getNormalColor());
-		shapeDrawer.drawFilledPolygon(b.polygon);
+		shapeDrawer.drawFilledPolygon(b.getPolygon());
 		shapeDrawer.setColor(((AWTMenuButton)b).getColor());
-		shapeDrawer.drawFilledPolygon(b.polygon);
-		drawTextLabel(b.textLabel);
+		shapeDrawer.drawFilledPolygon(b.getPolygon());
+		shapeDrawer.setColor(AWTColorGenerator.getCompliment(b.getColor()));
+		drawTextLabel(b.getTextLabel());
 	}
 	
 	public void drawPlusOnButton( MenuButton b ) {
-		
-		int centerX    = (int) b.getCenterX();
-		int centerY    = (int) b.getCenterY();
-		int plusWidth  = (int) b.getWidth() >>1;
-		int plusHeight = (int) b.getHeight()>>1;
+		Rectangle rect = b.getBoundingRectangle();
+		int centerX    = (int) rect.getCenterX();
+		int centerY    = (int) rect.getCenterY();
+		int plusWidth  = (int) rect.width >>1;
+		int plusHeight = (int) rect.height>>1;
 		plusWidth  = plusWidth < plusHeight ? plusWidth : plusHeight;
 		plusHeight = graphicData.getThicknessOf("plusSign");
 		
@@ -82,7 +85,7 @@ final public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer, Sing
 	}
 	
 	public void drawSelectorArrow( MenuButton b, int x, int size ) {
-		int y = (int) b.polygon.getBoundingRectangle().getCenterY();
+		int y = (int) b.getBoundingRectangle().getCenterY();
 		graphics.setColor(((AWTMenuButton)b).getColor());
 		graphics.drawLine(x,        y,        x - size, y + size);
 		graphics.drawLine(x,        y,        x - size, y - size);
