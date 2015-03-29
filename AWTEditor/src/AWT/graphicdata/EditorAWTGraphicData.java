@@ -1,5 +1,6 @@
 package AWT.graphicdata;
 
+import generic.datastructures.Property;
 import generic.tags.NamedData;
 import generic.tags.Singleton;
 
@@ -15,36 +16,42 @@ public class EditorAWTGraphicData extends AWTGraphicData implements Singleton, N
 	}
 	
 	private void loadColors() {
-		colors.insert("clear", new Color(0,0,0,0));
-		colors.insert("lightclear", new Color(50,50,50,50));
-		colors.insert("button", new Color(150,150,150));
-		colors.insert("buttonHighlight", new Color(125,125,162));
-		colors.insert("buttonPressed", new Color(175,100,175));
-		colors.insert("base", new Color(200,200,200));
-		colors.insert("MENU_BACKGROUND", new Color(240,240,240));
-		colors.insert("BACKGROUND", new Color(240,240,240));
-		colors.insert("PLUS_SIGN", new Color(165,165,165));
+		@SuppressWarnings("unchecked")
+		Property<Color> colorProp = getProperty("color");
+		colorProp.add("clear", new Color(0,0,0,0));
+		colorProp.add("lightclear", new Color(50,50,50,50));
+		colorProp.add("button", new Color(150,150,150));
+		colorProp.add("buttonHighlight", new Color(125,125,162));
+		colorProp.add("buttonPressed", new Color(175,100,175));
+		colorProp.add("base", new Color(200,200,200));
+		colorProp.add("MENU_BACKGROUND", new Color(240,240,240));
+		colorProp.add("BACKGROUND", new Color(240,240,240));
+		colorProp.add("PLUS_SIGN", new Color(165,165,165));
 	}
 	
 	private void loadThicknesses() {
-		thicknesses.insert("pointSize", 4);
-		thicknesses.insert("cursorStretchOutAmount", 10);
-		thicknesses.insert("cursorCenterGapAmount", 2);
-		thicknesses.insert("plusSign", 4);
-		thicknesses.insert("buttonWidth", 100);
-		thicknesses.insert("buttonHeight", 40);
+		@SuppressWarnings("unchecked")
+		Property<Integer> thicknessProp = getProperty("thickness");
+		thicknessProp.add("pointSize", 4);
+		thicknessProp.add("cursorStretchOutAmount", 10);
+		thicknessProp.add("cursorCenterGapAmount", 2);
+		thicknessProp.add("plusSign", 4);
+		thicknessProp.add("buttonWidth", 100);
+		thicknessProp.add("buttonHeight", 40);
 	}
 	
 	public static EditorAWTGraphicData getGraphicData() {
 		return graphicData;
 	}
-	
+
+	@SuppressWarnings("unchecked")
 	public void scaleThicknessOf(String name, float scaleFactor) {
-		thicknesses.insert("name", (int) (thicknesses.get(name) * scaleFactor));
+		getProperty("thickness").add(name, getThicknessOf(name) * scaleFactor);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void setThicknessOf(String name, int thickness) {
-		thicknesses.insert(name, thickness);
+		getProperty("thickness").add(name, thickness);
 	}
 
 }

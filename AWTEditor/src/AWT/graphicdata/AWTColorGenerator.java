@@ -1,53 +1,41 @@
 package AWT.graphicdata;
 
 
+import generic.structures.ColorData;
+import generic.tags.Library;
+import graphicdata.ColorGenerator;
+
 import java.awt.Color;
-import java.util.Random;
 
-public abstract class AWTColorGenerator {
+public abstract class AWTColorGenerator implements Library {
 	
-	public static Color randomColor(){
-		return new Color(	(int)(Math.random()*250), 
-				  			(int)(Math.random()*250), 
-				  			(int)(Math.random()*250));
+	public static Color randomColor() {
+		ColorData data = ColorGenerator.randomColor();
+		return new Color(data.r, data.g, data.b);
 	}
 	
-	//http://stackoverflow.com/questions/43044/algorithm-to-randomly-generate-an-aesthetically-pleasing-color-palette
-	public static Color randomPastel(){
-		return new Color(	(int)(Math.random()*127) + 127, 
-				  			(int)(Math.random()*127) + 127, 
-				  			(int)(Math.random()*127) + 127);
-		//return mixColor(Color.WHITE);
+	public static Color randomPastel() {
+		ColorData data = ColorGenerator.randomPastel();
+		return new Color(data.r, data.g, data.b);
 	}
 	
-	//http://stackoverflow.com/questions/43044/algorithm-to-randomly-generate-an-aesthetically-pleasing-color-palette
-	public static Color mixColor(Color mix){
-	    Random random = new Random();
-	    int red 	= random.nextInt(256);
-	    int green 	= random.nextInt(256);
-	    int blue 	= random.nextInt(256);
-
-	    // mix the color
-	    if (mix != null) {
-	        red = (red + mix.getRed()) / 2;
-	        green = (green + mix.getGreen()) / 2;
-	        blue = (blue + mix.getBlue()) / 2;
-	    }
-
-	    Color color = new Color(red, green, blue);
-	    return color;
+	public static Color mixColor(Color mix) {
+		ColorData mixData = new ColorData(mix.getRed(), mix.getGreen(), mix.getBlue(), mix.getAlpha());
+		ColorData data = ColorGenerator.mixColor(mixData);
+		return new Color(data.r, data.g, data.b);
 	}
 	
-	public static Color getCompliment(Color primary){
-		return new Color(255 - primary.getRed(), 
-						 255 - primary.getGreen(),
-						 255 - primary.getBlue());
+	public static Color getCompliment(Color primary) {
+		ColorData primaryData = new ColorData(primary.getRed(), primary.getGreen(), primary.getBlue(), primary.getAlpha());
+		ColorData data = ColorGenerator.getCompliment(primaryData);
+		return new Color(data.r, data.g, data.b);
 	}
 	
-	public static Color getIntermediateColor(Color primary, Color secondary){
-		return new Color(	(primary.getRed() + secondary.getRed())/2,
-							(primary.getGreen() + secondary.getGreen())/2,
-							(primary.getBlue() + secondary.getBlue())/2);
+	public static Color getIntermediateColor(Color primary, Color secondary) {
+		ColorData primaryData = new ColorData(primary.getRed(), primary.getGreen(), primary.getBlue(), primary.getAlpha());
+		ColorData secondaryData = new ColorData(secondary.getRed(), secondary.getGreen(), secondary.getBlue(), secondary.getAlpha());
+		ColorData data = ColorGenerator.getIntermediateColor(primaryData, secondaryData);
+		return new Color(data.r, data.g, data.b);
 	}
 
 }
