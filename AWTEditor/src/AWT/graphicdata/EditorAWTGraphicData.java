@@ -27,6 +27,7 @@ public class EditorAWTGraphicData extends AWTGraphicData implements Singleton, N
 		colorProp.add("MENU_BACKGROUND", new Color(240,240,240));
 		colorProp.add("BACKGROUND", new Color(240,240,240));
 		colorProp.add("PLUS_SIGN", new Color(165,165,165));
+		colorProp.add("cursor", new Color(0,0,0));
 	}
 	
 	private void loadThicknesses() {

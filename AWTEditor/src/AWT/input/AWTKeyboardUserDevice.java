@@ -7,7 +7,7 @@ import UI.input.InputEvent;
 import UI.input.InputEventBuilder;
 import UI.input.KeyboardUserDevice;
 
-public class AWTKeyboardUserDevice extends KeyboardUserDevice implements KeyListener {
+final public class AWTKeyboardUserDevice extends KeyboardUserDevice implements KeyListener {
 
 	public AWTKeyboardUserDevice() {		
 
