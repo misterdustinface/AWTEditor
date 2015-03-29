@@ -6,7 +6,7 @@ import java.awt.event.MouseMotionListener;
 
 import UI.input.MouseUserDevice;
 
-public abstract class AWTMouseUserDevice extends MouseUserDevice implements MouseListener, MouseMotionListener {
+final public class AWTMouseUserDevice extends MouseUserDevice implements MouseListener, MouseMotionListener {
 	
 	public AWTMouseUserDevice() { 
 		super(); 
@@ -28,10 +28,12 @@ public abstract class AWTMouseUserDevice extends MouseUserDevice implements Mous
 	
 	public void mouseDragged(MouseEvent e) { 
 		drag(); 
+		cursorPosition.set(e.getX(), e.getY());
 	}
 	
 	public void mouseMoved(MouseEvent e) { 
-		move(); 
+		move();
+		cursorPosition.set(e.getX(), e.getY());
 	}
 	
 	private void recordButtonData(MouseEvent arg0) {
