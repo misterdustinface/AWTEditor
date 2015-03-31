@@ -104,9 +104,9 @@ final public class AWTMenuDrawer extends AWTRenderer implements MenuDrawer, Sing
 	}
 	
 	public void drawUIMenu( UIMenu menu ) {
-		drawMenuBox(menu.getX(), menu.getY(), menu.getWidth(), menu.getHeight());
-		for (int i = 0; i < menu.numberOfButtons(); ++i) {
-			drawButton(menu.getButton(i));
+		drawMenuBox((int)menu.getX(), (int)menu.getY(), (int)menu.getWidth(), (int)menu.getHeight());
+		for (MenuButton button : menu) {
+			drawButton(button);
 		}
 	}
 

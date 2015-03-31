@@ -1,7 +1,6 @@
 package AWT.UI.CommonMenus;
 
 import generic.fp.VoidFunctionPointer;
-import shapes.Point;
 import shapes.Polygon;
 import shapes.PolygonBuilder;
 import AWT.UI.AWTDropdownListMenu;
@@ -44,7 +43,7 @@ public class AWTViewOptionsMenu extends AWTDropdownListMenu {
 		MenuButton[] menuButtons = new MenuButton[] {resetZoom, gotoOrigin};
 		AWTStaticListMenu list = new AWTStaticListMenu();
 		list.setButtons(menuButtons);
-		list.setPosition(new Point(282,2 + optionsButton.getBoundingRectangle().height));
+		list.setPosition(282, 2 + optionsButton.getBoundingRectangle().height);
 		list.setButtonOffset(2);
 		list.setButtonDimensions((int)optionsButton.getBoundingRectangle().width - 4, (int)optionsButton.getBoundingRectangle().height - 4);
 		

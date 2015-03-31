@@ -4,9 +4,8 @@ import java.awt.Graphics2D;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.util.ArrayList;
+import java.util.Iterator;
 
-import shapes.Point;
 import shapes.Polygon;
 import shapes.PolygonBuilder;
 import AWT.UI.AWTDropdownListMenu;
@@ -106,7 +105,7 @@ public class AWTFileMenu implements ButtonMenu, AWTUILayer {
 		MenuButton[] fileMenuOptions = new MenuButton[] { saveButton, openButton };
 		AWTStaticListMenu list = new AWTStaticListMenu();
 		list.setButtons(fileMenuOptions);
-		list.setPosition(new Point(2,2 + fileButton.getBoundingRectangle().height));
+		list.setPosition(2,2 + fileButton.getBoundingRectangle().height);
 		list.setButtonOffset(2);
 		list.setButtonDimensions((int)fileButton.getBoundingRectangle().width - 4, (int)fileButton.getBoundingRectangle().height - 4);
 		
@@ -129,43 +128,39 @@ public class AWTFileMenu implements ButtonMenu, AWTUILayer {
 		dropdownListMenu.refreshButton(index);
 	}
 	
-	public int getX() { 
+	public float getX() { 
 		return dropdownListMenu.getX(); 
 	}
 	
-	public int getY() { 
+	public float getY() { 
 		return dropdownListMenu.getY(); 
 	}
 	
-	public int getWidth() { 
+	public float getWidth() { 
 		return dropdownListMenu.getWidth(); 
 	}
 	
-	public int getHeight() { 
+	public float getHeight() { 
 		return dropdownListMenu.getHeight();
 	}
 	
-	public void setPosition(Point POSITION) {
-		dropdownListMenu.setPosition(POSITION);
+	public void setPosition(float x, float y) {
+		dropdownListMenu.setPosition(x, y);
 	}
 	
-	public void setButtonOffset(int BUTTON_OFFSET) { 
+	public void setButtonOffset(float BUTTON_OFFSET) { 
 		dropdownListMenu.setButtonOffset(BUTTON_OFFSET);
 	}
 	
-	public void setButtonSize(int BUTTON_SIZE)     {
+	public void setButtonSize(float BUTTON_SIZE)     {
 		dropdownListMenu.setButtonSize(BUTTON_SIZE);
 	}
 	
-	public void setButtonDimensions(int WIDTH, int HEIGHT) {
+	public void setButtonDimensions(float WIDTH, float HEIGHT) {
 		dropdownListMenu.setButtonDimensions(WIDTH, HEIGHT);
 	}
 	
 	public void setButtons(MenuButton ... BUTTONS) {
-		dropdownListMenu.setButtons(BUTTONS);
-	}
-	
-	public void setButtons(ArrayList<MenuButton> BUTTONS) {
 		dropdownListMenu.setButtons(BUTTONS);
 	}
 	
@@ -195,6 +190,25 @@ public class AWTFileMenu implements ButtonMenu, AWTUILayer {
 	
 	public boolean contains(MouseUserDevice mouse) {
 		return dropdownListMenu.contains(mouse);
+	}
+
+	public Iterator<MenuButton> iterator() {
+		return new Iterator<MenuButton>() {
+			
+			private int i = 0;
+			
+			public boolean hasNext() {
+				return i < numberOfButtons();
+			}
+
+			public MenuButton next() {
+				return getButton(i++);
+			}
+
+			public void remove() {
+				removeButton(getButton(i));
+			}
+		};
 	}
 	
 }
