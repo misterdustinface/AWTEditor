@@ -22,7 +22,7 @@ final public class AWTMouseUserDeviceDisplayLayer implements AWTUILayer {
 	public void render(Graphics2D g) {
 		cursorDrawer.setGraphics(g);
 		cursorDrawer.setColor(graphicData.getColorOf("cursor"));
-		cursorDrawer.drawPointerCursor((int)userDevice.getCursorX(), (int)userDevice.getCursorY());
+		cursorDrawer.drawCursor((int)userDevice.getCursorX(), (int)userDevice.getCursorY());
 	}
 
 	public void update(MouseUserDevice mouse) {
