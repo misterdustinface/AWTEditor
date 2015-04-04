@@ -1,7 +1,7 @@
 package AWT.UI2;
 
-import generic.TickingLoop;
-import generic.fp.VoidFunctionPointer;
+import base.TickingLoop;
+import functionpointers.VoidFunctionPointer;
 
 public class FixedDrawer extends TickingLoop {
 	

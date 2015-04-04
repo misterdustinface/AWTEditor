@@ -1,9 +1,8 @@
 package AWT.UI;
 
-import generic.structures.Grid;
-
 import java.awt.Graphics2D;
 
+import structures.Grid;
 import AWT.rendering.AWTMenuDrawer;
 import UI.widgets.DynamicGridMenu;
 

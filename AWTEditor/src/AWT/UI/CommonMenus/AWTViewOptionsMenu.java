@@ -1,6 +1,5 @@
 package AWT.UI.CommonMenus;
 
-import generic.fp.VoidFunctionPointer;
 import shapes.Polygon;
 import shapes.PolygonBuilder;
 import AWT.UI.AWTDropdownListMenu;
@@ -10,6 +9,7 @@ import AWT.graphicdata.EditorAWTGraphicData;
 import UI.Viewport;
 import UI.Zoomable;
 import UI.widgets.MenuButton;
+import functionpointers.VoidFunctionPointer;
 
 public class AWTViewOptionsMenu extends AWTDropdownListMenu {
 

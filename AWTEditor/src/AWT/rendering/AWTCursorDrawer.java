@@ -1,9 +1,9 @@
 package AWT.rendering;
 
-import generic.tags.Singleton;
 import rendering.CursorDrawer;
 import shapes.Point;
 import shapes.Polygon;
+import tags.Singleton;
 import AWT.graphicdata.EditorAWTGraphicData;
 
 final public class AWTCursorDrawer extends AWTRenderer implements CursorDrawer, Singleton {

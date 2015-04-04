@@ -1,9 +1,9 @@
 package AWT.rendering;
 
-import generic.tags.Singleton;
 import rendering.MenuDrawer;
 import shapes.Point;
 import shapes.Rectangle;
+import tags.Singleton;
 import AWT.UI.AWTBarSlider;
 import AWT.UI.AWTMenuButton;
 import AWT.graphicdata.AWTColorGenerator;

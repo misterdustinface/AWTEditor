@@ -1,10 +1,10 @@
 package AWT.graphicdata;
 
-import generic.datastructures.Property;
-import generic.tags.NamedData;
-import generic.tags.Singleton;
-
 import java.awt.Color;
+
+import tags.NamedData;
+import tags.Singleton;
+import datastructures.Property;
 
 public class EditorAWTGraphicData extends AWTGraphicData implements Singleton, NamedData {
 	

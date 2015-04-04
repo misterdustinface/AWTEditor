@@ -1,12 +1,11 @@
 package AWT.UI;
 
-import generic.ListenerPattern.Listener;
-import generic.ListenerPattern.Notifier;
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
+import listenerpattern.Listener;
+import listenerpattern.Notifier;
 import UI.DiscreteGridLayer;
 import UI.Discretizer;
 import UI.Viewport;

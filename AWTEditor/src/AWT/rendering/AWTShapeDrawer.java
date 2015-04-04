@@ -1,12 +1,12 @@
 package AWT.rendering;
 
-import generic.tags.Singleton;
 import rendering.ShapeDrawer;
 import shapes.Circle;
 import shapes.LineSegment;
 import shapes.Point;
 import shapes.Polygon;
 import shapes.Rectangle;
+import tags.Singleton;
 import AWT.graphicdata.EditorAWTGraphicData;
 
 final public class AWTShapeDrawer extends AWTRenderer implements ShapeDrawer, Singleton {

@@ -1,10 +1,11 @@
 package AWT.graphicdata;
 
-import generic.datastructures.Property;
-import generic.tags.NamedData;
 import graphicdata.GraphicData;
 
 import java.awt.Color;
+
+import datastructures.Property;
+import tags.NamedData;
 
 public abstract class AWTGraphicData extends GraphicData implements NamedData {
 	

@@ -1,11 +1,12 @@
 package AWT.graphicdata;
 
 
-import generic.structures.ColorData;
-import generic.tags.Library;
 import graphicdata.ColorGenerator;
 
 import java.awt.Color;
+
+import structures.ColorData;
+import tags.Library;
 
 public abstract class AWTColorGenerator implements Library {
 	

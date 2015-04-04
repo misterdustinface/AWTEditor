@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.Iterator;
 
+import listeners.DataModificationListener;
 import shapes.Polygon;
 import shapes.PolygonBuilder;
 import AWT.UI.AWTDropdownListMenu;
@@ -18,8 +19,7 @@ import UI.input.MouseUserDevice;
 import UI.widgets.ButtonMenu;
 import UI.widgets.MenuButton;
 import file.LuaScriptFiler;
-import generic.ListenerPattern.Descriptive.DataModificationListener;
-import generic.fp.VoidFunctionPointer;
+import functionpointers.VoidFunctionPointer;
 
 public class AWTFileMenu implements ButtonMenu, AWTUILayer {
 
